@@ -33,6 +33,7 @@ module.exports = {
       orange: '#FFA800',
       purple: '#C24CFE',
       fuchsia: '#DB00FF',
+      pink: '#ff638e',
       green: {
         DEFAULT: '#1CC500',
         background: '#B2F5CB'

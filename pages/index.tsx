@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import NavBar from '../components/NavBar'
 
 const Home: NextPage = () => {
   return (
@@ -10,10 +11,14 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <NavBar />
       <main className="mt-20 px-8">
-        <h1 className="font-display font-bold text-5xl text-red text-center">
-          Animate Your Lil Noun. Coming Soon.
-        </h1>
+        <p className="font-display text-5xl text-black-text text-center">
+          Animate Your Lil Noun.
+        </p>
+        <p className="mt-2 font-display text-5xl text-black-text text-center">
+          Coming Soon.
+        </p>
       </main>
 
       <footer className=""></footer>
