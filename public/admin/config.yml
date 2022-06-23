@@ -1,0 +1,27 @@
+backend:
+  name: test-repo # test-repo git-gateway
+  accept_roles: # optional - accepts all users if left out
+    - admin
+    - editor
+  branch: main # Branch to update (optional; defaults to master)
+media_folder: public/img/artists
+public_folder: img/artists
+collections:
+  - label: 'Artist'
+    name: 'artist'
+    create: true
+    format: 'json'
+    folder: 'assets/content/artists'
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'DateAdded', name: 'date', widget: 'datetime' }
+      - {
+          label: 'Work Examples',
+          name: 'examples',
+          widget: 'list',
+          max: 10,
+          min: 3,
+          summary: '{{fields.image}}',
+          field: { label: Image, name: image, widget: image }
+        }
