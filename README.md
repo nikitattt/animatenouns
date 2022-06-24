@@ -2,11 +2,21 @@
 
 Project that make nouns alive.
 
-This is a [Next.js](https://nextjs.org/) project.
+This is a [Next.js](https://nextjs.org/) project intended to be hosted on Netlify as it uses Netlify CMS.
 
 ## Getting Started
 
-First, run the development server:
+Make sure to rename `.env.local.example` to `.env.local` and add all required values to variables. Look further in the readme, for exact services and corresponding vars that are used.
+
+### Artist Directory
+
+You need to make sure you have the form for artist application ready. Project initially uses Tally for this.
+
+After you get the link, add it as value of `ARTIST_FORM_LINK` env variable. Check on `\artist-form` that everything loads correctly (you should have form displayed full page).
+
+Project uses Netlify CMS with Netlify Identity for storing artists data in the git. Make sure you enable all required permission on Netlify (refer to Netlify CMS docs for this).
+
+Then, run the development server:
 
 ```bash
 npm run dev
