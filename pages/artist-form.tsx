@@ -12,17 +12,17 @@ const Home: NextPage = () => {
       </Head>
 
       <NavBar />
-      <main className="">
+      <main>
         <iframe
           className="absolute top-0 bottom-0 left-0 right-0"
-          src="https://tally.so/r/waQB4Z?transparentBackground=1"
+          src={process.env.ARTIST_FORM_LINK}
           width="100%"
           height="100%"
-          title="Animate Nouns Bespoke Artist Directory"
+          title="Apply as Bespoke Artist"
         ></iframe>
       </main>
 
-      <footer className=""></footer>
+      <footer></footer>
     </div>
   )
 }
