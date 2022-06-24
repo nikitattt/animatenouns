@@ -25,7 +25,7 @@ collections:
       - { label: 'Long Bio', name: 'longBio', widget: 'text', required: false }
       - {
           label: 'Work Examples',
-          name: 'examples',
+          name: 'workExamples',
           widget: 'list',
           max: 10,
           min: 3,
