@@ -1,14 +1,12 @@
 import clsx from 'clsx'
 
 type NounPreviewProps = {
-  sizeClasses: string
   animation: any
   animationActive?: boolean
   seed: any
 }
 
 const NounPreview = ({
-  sizeClasses,
   animation,
   animationActive = true,
   seed
@@ -16,8 +14,8 @@ const NounPreview = ({
   return (
     <div
       className={clsx(
-        sizeClasses,
-        'bg-grey-light bg-opacity-20 rounded-2xl flex items-center justify-center'
+        'flex items-center justify-center bg-grey-light bg-opacity-20',
+        'rounded-2xl aspect-square w-full'
       )}
     >
       {animationActive && (

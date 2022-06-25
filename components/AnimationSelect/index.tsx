@@ -28,12 +28,13 @@ const AnimationSelect = ({ animations }: { animations: any[] }) => {
         {animations.map(function (animation, place) {
           return (
             <div key={place}>
-              <NounPreview
-                sizeClasses="h-40 w-40"
-                animation={animation}
-                animationActive={false}
-                seed={{}}
-              />
+              <div className="w-40 h-40">
+                <NounPreview
+                  animation={animation}
+                  animationActive={false}
+                  seed={{}}
+                />
+              </div>
             </div>
           )
         })}

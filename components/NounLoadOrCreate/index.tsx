@@ -4,7 +4,7 @@ import TraitsSelect from '../TraitsSelect'
 
 const NounLoadOrCreate = () => {
   return (
-    <div className="flex flex-column">
+    <div className="flex flex-column min-w-full">
       <CollectionSelect />
       <TraitsSelect />
       <RandomNoun />
