@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       </Head>
 
       <NavBar />
-      <main className="mt-20 px-8 sm:px-40">
+      <main className="mt-20 px-8 sm:px-20 md:px-40">
         <AnimateNoun />
         <BespokeService artists={[]} />
       </main>

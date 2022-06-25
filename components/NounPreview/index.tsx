@@ -19,7 +19,7 @@ const NounPreview = ({
       )}
     >
       {animationActive && (
-        <p className="text-grey font-extralight text-xl text-center">
+        <p className="text-grey font-display font-thin text-2xl tracking-wide text-center">
           Coming
           <br />
           soon!
