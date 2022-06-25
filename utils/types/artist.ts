@@ -3,8 +3,8 @@
  */
 export type Artist = {
   name: string
-  dateAdded: Date
-  lastUpdate: Date
+  dateAdded: string
+  lastUpdate: string
   shortDescription: string
   longBio?: string
   workExamples: string[]
@@ -16,7 +16,7 @@ export type Artist = {
   workCost: {
     preferredCurrency: string
     whenOne: number
-    whenBatch: number
+    whenBatch?: number
     comments?: string
   }
 }

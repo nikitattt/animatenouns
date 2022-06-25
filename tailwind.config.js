@@ -38,7 +38,7 @@ module.exports = {
         DEFAULT: '#1CC500',
         background: '#B2F5CB'
       },
-      teal: '#00FFF0',
+      teal: '#A6FFDA',
       grey: {
         light: '#C7C7C7',
         DEFAULT: '#7D7D7D',
