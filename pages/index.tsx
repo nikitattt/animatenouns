@@ -16,7 +16,6 @@ const Home: NextPage<{ data: string }> = (props) => {
       <Head>
         <title>Animate Nouns</title>
         <meta name="description" content="Animate your noun here" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <NavBar />

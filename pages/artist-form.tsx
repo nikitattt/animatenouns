@@ -8,7 +8,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Animate Nouns Artist Form</title>
         <meta name="description" content="Animate your noun here" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
