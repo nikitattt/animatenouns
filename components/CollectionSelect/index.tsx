@@ -1,5 +1,7 @@
 const CollectionSelect = () => {
-  return <div className=""></div>
+  return (
+    <div className="h-12 w-full bg-grey-light bg-opacity-10 rounded-2xl"></div>
+  )
 }
 
 export default CollectionSelect
