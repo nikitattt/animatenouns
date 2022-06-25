@@ -53,7 +53,7 @@ export async function getStaticProps() {
       dateAdded: '',
       lastUpdate: '',
       shortDescription: '',
-      workExamples: ['', '', ''],
+      workExamples: ['', '', '', ''],
       contacts: {},
       workCost: {
         preferredCurrency: 'USD',

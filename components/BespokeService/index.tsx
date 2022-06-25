@@ -11,8 +11,8 @@ const BespokeService = ({ artists }: { artists: Artist[] }) => {
           <span className="text-grey">We got you covered</span>
         </p>
         <p className="text-lg">
-          Commision one of the artists that will craft you beautiful full
-          feature animated noun
+          Commission one of the artists that will craft you your-only bespoke
+          animated noun
         </p>
       </div>
       <ArtistsList artists={artists} />
