@@ -7,7 +7,7 @@ const ArtistBox = ({ artist }: { artist: Artist }) => {
       <p className="mt-2 font-bold text-sm text-grey opacity-70">
         Work examples:
       </p>
-      <div className="mt-2 flex flex-row gap-2">
+      <div className="mt-2 flex flex-row gap-2 overflow-scroll">
         {artist.workExamples.map(function (image, place) {
           return (
             <div key={place}>
