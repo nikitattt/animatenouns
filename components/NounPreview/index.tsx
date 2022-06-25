@@ -1,18 +1,18 @@
 import clsx from 'clsx'
 
-type AnimatedNounProps = {
+type NounPreviewProps = {
   sizeClasses: string
   animation: any
   animationActive?: boolean
   seed: any
 }
 
-const AnimatedNoun = ({
+const NounPreview = ({
   sizeClasses,
   animation,
   animationActive = true,
   seed
-}: Readonly<AnimatedNounProps>) => {
+}: Readonly<NounPreviewProps>) => {
   return (
     <div
       className={clsx(
@@ -31,4 +31,4 @@ const AnimatedNoun = ({
   )
 }
 
-export default AnimatedNoun
+export default NounPreview

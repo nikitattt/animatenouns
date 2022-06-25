@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import AnimatedNoun from '../AnimatedNoun'
+import NounPreview from '../NounPreview'
 import ScrollButton, { ScrollButtonDirection } from '../ScrollButton'
 
 const AnimationSelect = ({ animations }: { animations: any[] }) => {
@@ -28,7 +28,7 @@ const AnimationSelect = ({ animations }: { animations: any[] }) => {
         {animations.map(function (animation, place) {
           return (
             <div key={place}>
-              <AnimatedNoun
+              <NounPreview
                 sizeClasses="h-40 w-40"
                 animation={animation}
                 animationActive={false}
