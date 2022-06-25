@@ -50,7 +50,32 @@ module.exports = {
         facebook: '#4267b2'
       }
     },
-    extend: {}
+    extend: {
+      keyframes: {
+        'click-sm': {
+          '0%, 100%': { transform: 'scale(1.0, 1.0)' },
+          '50%': { transform: 'scale(0.98, 0.98)' }
+        },
+        click: {
+          '0%, 100%': { transform: 'scale(1.0, 1.0)' },
+          '50%': { transform: 'scale(0.95, 0.95)' }
+        },
+        'click-lg': {
+          '0%, 100%': { transform: 'scale(1.0, 1.0)' },
+          '50%': { transform: 'scale(0.92, 0.92)' }
+        },
+        'click-shake': {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' }
+        }
+      },
+      animation: {
+        click: 'click 200ms ease-in-out',
+        'click-shake': 'click-shake 200ms ease-in-out',
+        'click-lg': 'click-lg 200ms ease-in-out',
+        'click-sm': 'click-sm 150ms ease-in-out'
+      }
+    }
   },
   plugins: []
 }
