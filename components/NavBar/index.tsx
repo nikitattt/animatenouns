@@ -8,7 +8,8 @@ const NavBar = () => {
           <img src="/icon.gif" />
         </Link>
       </div>
-      <div className="flex flex-row items-center gap-4">
+      <div className="flex flex-row items-center gap-8">
+        <NavLink href="/for-artists" text="For Artists" />
         <NavLink href="/#bespoke" text="Bespoke" />
       </div>
     </div>
