@@ -22,7 +22,9 @@ const Home: NextPage<{ data: string }> = (props) => {
       <NavBar />
       <main className="mt-20 px-8 sm:px-20 md:px-40">
         <AnimateNoun />
-        <BespokeService artists={artists} />
+        <div id="bespoke">
+          <BespokeService artists={artists} />
+        </div>
       </main>
 
       <footer className="flex mt-20">
