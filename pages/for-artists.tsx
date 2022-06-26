@@ -13,12 +13,12 @@ const ForArtists: NextPage = () => {
 
       <NavBar />
       <main className="mt-20 px-8 sm:px-20 md:px-40">
-        <div>
-          <p>
-            If you are an artist and want to be featured in our bespoke artist
-            directory, fill the form:
+        <div className="w-full">
+          <p className="max-w-prose text-center mx-auto">
+            If you are a pixel animation artist and would like to animate the
+            nouniverse, apply to be featured in our bespoke artist directory:
           </p>
-          <div className="mt-8 cursor-pointer bg-pink px-8 py-3 w-max rounded-2xl">
+          <div className="mt-8 cursor-pointer bg-pink px-8 py-3 w-max rounded-2xl mx-auto">
             <Link href="/artist-form">
               <p className="text-white font-black">Apply as an artist</p>
             </Link>
