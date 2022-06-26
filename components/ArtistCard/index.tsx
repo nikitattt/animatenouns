@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Artist } from '../../utils/types/artist'
 
-const ArtistBox = ({ artist }: { artist: Artist }) => {
+const ArtistCard = ({ artist }: { artist: Artist }) => {
   const [showLongBio, setShowLongBio] = useState(false)
 
   return (
@@ -61,4 +61,4 @@ const ArtistBox = ({ artist }: { artist: Artist }) => {
   )
 }
 
-export default ArtistBox
+export default ArtistCard
