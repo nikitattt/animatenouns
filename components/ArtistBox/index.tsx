@@ -12,7 +12,7 @@ const ArtistBox = ({ artist }: { artist: Artist }) => {
           return (
             <div key={place}>
               <div className="h-40 w-40 rounded-2xl bg-white bg-opacity-30">
-                <img src={image} />
+                <img src={image} alt="Animated noun" />
               </div>
             </div>
           )

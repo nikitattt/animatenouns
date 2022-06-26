@@ -11,7 +11,7 @@ const ArtistForm: NextPage = () => {
 
       <main>
         <p className="mt-8 sm:mt-20 text-2xl text-grey text-center">
-          If you don't see the form, please refresh the page
+          If you do not see the form, please refresh the page
         </p>
         <iframe
           className="absolute top-0 bottom-0 left-0 right-0"
