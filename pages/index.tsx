@@ -41,9 +41,16 @@ export async function getStaticProps() {
       name: 'Nounimator Jake',
       dateAdded: '',
       lastUpdate: '',
-      shortDescription: '',
+      shortDescription:
+        'I create different nice animations. I am very good at it and bla bla bla ',
+      longBio:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut sagittis elit. Aliquam pharetra, felis hendrerit vulputate egestas, dolor odio tincidunt eros, non congue dui urna hendrerit tortor. Donec dapibus, magna in malesuada ullamcorper, mauris nisi lacinia erat, eget maximus ligula ligula sed lacus. Quisque posuere neque eu purus volutpat tempor. Donec eget enim et augue egestas mattis eu eu ligula. Praesent vulputate nibh id erat auctor, quis dictum justo dignissim.',
       workExamples: ['', '', ''],
-      contacts: {},
+      contacts: {
+        twitter: '@nounimator',
+        discord: 'nounimator#0001',
+        email: 'nounimator@nouns.wtf'
+      },
       workCost: {
         preferredCurrency: 'USD',
         whenOne: 10
