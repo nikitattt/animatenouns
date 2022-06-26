@@ -7,7 +7,7 @@ const ArtistCard = ({ artist }: { artist: Artist }) => {
   return (
     <div className="w-full flex flex-col rounded-2xl bg-teal p-4">
       <p className="text-2xl font-semibold">{artist.name}</p>
-      <p className="my-1">{artist.shortDescription}</p>
+      <p className="my-1 text-grey-dark text-lg">{artist.shortDescription}</p>
       {artist.longBio && (
         <div className="my-2 bg-white bg-opacity-40 w-max py-0.5 pl-4 pr-3 rounded-lg">
           <button onClick={() => setShowLongBio(!showLongBio)}>
