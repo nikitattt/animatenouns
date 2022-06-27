@@ -47,7 +47,8 @@ module.exports = {
       brand: {
         twitter: '#1da1f2',
         instagram: '#e1306c',
-        facebook: '#4267b2'
+        facebook: '#4267b2',
+        discord: '#5865F2'
       }
     },
     extend: {
