@@ -30,7 +30,7 @@ const useNounStore = create<NounState>((set, get) => ({
     if (collection as Collections) {
       set({ collection: collection as Collections })
     } else {
-      set({ collection: undefined })
+      set({ collection: undefined, activeNoun: undefined })
     }
   },
   setActiveNoun: (seed: Seed) => set({ activeNoun: seed })
