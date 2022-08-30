@@ -24,7 +24,7 @@ const AnimationSelect = ({ animations }: { animations: any[] }) => {
           />
         </div>
       </div>
-      <div ref={listRef} className="my-6 flex flex-row gap-8 overflow-scroll">
+      <div ref={listRef} className="my-6 flex flex-row gap-8 overflow-scroll no-scrollbar">
         {animations.map(function (animation, place) {
           return (
             <div key={place}>

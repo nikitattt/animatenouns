@@ -48,7 +48,7 @@ const ArtistCardButton = ({
     <div className="my-2 bg-white bg-opacity-40 w-max py-0.5 pl-4 pr-3 rounded-lg">
       <button onClick={onClick}>
         <div className="flex flex-row items-center fill-grey gap-px">
-          <p className="text-grey font-semibold">{text}</p>
+          <p className="text-grey font-medium">{text}</p>
           {active ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -105,42 +105,14 @@ const ArtistCard = ({ artist }: { artist: Artist }) => {
       {showLongBio && <p className="text-grey-dark">{artist.longBio}</p>}
       {showContacts && (
         <div>
-          {artist.contacts.email && (
-            <div className="my-2 flex flex-col">
-              <div className="flex flex-row gap-2 items-center">
-                <div className="h-8 px-3 bg-white bg-opacity-40 rounded-lg flex flex-row items-center gap-2">
-                  <div className="w-6 h-6 flex items-center">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 stroke-grey"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={3}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-grey font-bold">{artist.contacts.email}</p>
-                </div>
-                <ArtistContactCopyButton text={artist.contacts.email} />
-                <ArtistContactNewPage
-                  link={`mailto:${artist.contacts.email}?subject=Noun Animation Request`}
-                />
-              </div>
-            </div>
-          )}
           {artist.contacts.twitter && (
             <div className="my-2 flex flex-col">
               <div className="flex flex-row gap-2 items-center">
-                <div className="h-8 px-3 bg-white bg-opacity-40 rounded-lg flex flex-row items-center gap-2">
+                <div className="h-8 flex flex-row items-center gap-2">
                   <div className="w-6 h-6 flex items-center">
                     <img src="icons/twitter.svg" />
                   </div>
-                  <p className="text-brand-twitter font-bold">
+                  <p className="text-brand-twitter font-semibold">
                     {artist.contacts.twitter}
                   </p>
                 </div>
@@ -156,11 +128,11 @@ const ArtistCard = ({ artist }: { artist: Artist }) => {
           {artist.contacts.discord && (
             <div className="my-2 flex flex-col">
               <div className="flex flex-row gap-2 items-center">
-                <div className="h-8 px-3 bg-white bg-opacity-40 rounded-lg flex flex-row items-center gap-2">
+                <div className="h-8 flex flex-row items-center gap-2">
                   <div className="w-6 h-6 flex items-center">
                     <img src="icons/discord.svg" />
                   </div>
-                  <p className="text-brand-discord font-bold">
+                  <p className="text-brand-discord font-semibold">
                     {artist.contacts.discord}
                   </p>
                 </div>
@@ -168,12 +140,41 @@ const ArtistCard = ({ artist }: { artist: Artist }) => {
               </div>
             </div>
           )}
+          {artist.contacts.email && (
+            <div className="my-2 flex flex-col">
+              <div className="flex flex-row gap-2 items-center">
+                <div className="h-8 flex flex-row items-center gap-2">
+                  <div className="w-6 h-6 flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-6 w-6 stroke-grey"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={3}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-grey font-semibold">{artist.contacts.email}</p>
+                </div>
+                <ArtistContactCopyButton text={artist.contacts.email} />
+                <ArtistContactNewPage
+                  link={`mailto:${artist.contacts.email}?subject=Noun Animation Request`}
+                />
+              </div>
+            </div>
+          )}
         </div>
       )}
+
       <p className="mt-2 font-bold text-sm text-grey opacity-70">
         Work examples:
       </p>
-      <div className="mt-2 flex flex-row gap-2 overflow-scroll">
+      <div className="mt-2 flex flex-row gap-2 overflow-scroll no-scrollbar">
         {artist.workExamples.map(function (image, place) {
           return (
             <div key={place}>
