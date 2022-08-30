@@ -1,9 +1,12 @@
+import { useNounStore } from '../../state/noun'
 import AnimationSelect from '../AnimationSelect'
 import NounPreview from '../NounPreview'
 import NounSelectAndActions from '../NounSelectAndActions'
 
 const AnimateNoun = () => {
   const animations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+  const activeNoun = useNounStore((state) => state.activeNoun)
+  console.log(activeNoun)
   return (
     <div className="flex flex-col">
       <div className="flex flex-col lg:flex-row mx-auto gap-4 w-full justify-center">

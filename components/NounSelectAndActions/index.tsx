@@ -5,7 +5,7 @@ import RandomNoun from '../RandomNoun'
 import TraitsSelect from '../TraitsSelect'
 
 const NounSelectAndActions = () => {
-  const collection = useNounStore(state => state.collection)
+  const collection = useNounStore((state) => state.collection)
 
   let actions = <></>
 
@@ -18,20 +18,23 @@ const NounSelectAndActions = () => {
           <RandomNoun />
         </div>
       )
-      break;
+      break
     case Collections.nouns:
       actions = (
         <div className="flex flex-col gap-4">
-          {/* <TraitsSelect />
-          <RandomNoun /> */}
+          <div className="p-4 w-full bg-grey-light bg-opacity-10 rounded-2xl">
+            <div className="text-center text-grey text-sm">
+              Nothing here yet🥲 Check again soon!
+            </div>
+          </div>
         </div>
       )
-      break;
+      break
     default:
       actions = (
         <div className="p-4 w-full bg-grey-light bg-opacity-10 rounded-2xl">
-          <div className='text-center text-grey text-sm'>
-            Select collection to see available actions
+          <div className="text-center text-grey text-sm">
+            Select collection to get started!
           </div>
         </div>
       )

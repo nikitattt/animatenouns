@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { Toaster } from 'react-hot-toast'
 import AnimateNoun from '../components/AnimateNoun'
 import BespokeService from '../components/BespokeService'
 import NavBar from '../components/NavBar'
@@ -17,6 +18,7 @@ const Home: NextPage<{ data: string }> = (props) => {
         <title>Animate Nouns</title>
         <meta name="description" content="Animate your noun here" />
       </Head>
+      <Toaster position="top-right" />
 
       <NavBar />
       <main className="mt-20 px-8 sm:px-20 md:px-40">
@@ -60,11 +62,16 @@ export async function getStaticProps() {
       name: 'We are searching',
       dateAdded: '',
       lastUpdate: '',
-      shortDescription: 'This is just placeholder :( We are actively searching for the artists. Are you are a pixel animation artist and would like to animate the nouniverse? Contact us to be featured in our bespoke artist directory!',
-      workExamples: ['https://i.imgur.com/9VkFQaU.gif', 'https://i.imgur.com/nimEegS.gif', 'https://i.imgur.com/AJXPeyI.gif'],
+      shortDescription:
+        'This is just placeholder :( We are actively searching for the artists. Are you are a pixel animation artist and would like to animate the nouniverse? Contact us to be featured in our bespoke artist directory!',
+      workExamples: [
+        'https://i.imgur.com/9VkFQaU.gif',
+        'https://i.imgur.com/nimEegS.gif',
+        'https://i.imgur.com/AJXPeyI.gif'
+      ],
       contacts: {
         twitter: '@iamng_eth',
-        discord: 'iamng#3884',
+        discord: 'iamng#3884'
       },
       workCost: {
         preferredCurrency: 'USD',
