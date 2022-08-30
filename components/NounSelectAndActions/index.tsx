@@ -12,7 +12,7 @@ const NounSelectAndActions = () => {
   switch (collection) {
     case Collections.lilNouns:
       actions = (
-        <div className="mt-4 flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <OnChainNoun />
           <TraitsSelect />
           <RandomNoun />
@@ -21,7 +21,7 @@ const NounSelectAndActions = () => {
       break;
     case Collections.nouns:
       actions = (
-        <div className="mt-4 flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {/* <TraitsSelect />
           <RandomNoun /> */}
         </div>
@@ -29,14 +29,16 @@ const NounSelectAndActions = () => {
       break;
     default:
       actions = (
-        <div className='mt-2 text-center text-grey text-sm'>
-          Select collection to see available actions
+        <div className="p-4 w-full bg-grey-light bg-opacity-10 rounded-2xl">
+          <div className='text-center text-grey text-sm'>
+            Select collection to see available actions
+          </div>
         </div>
       )
   }
 
   return (
-    <div className="flex flex-col min-w-full">
+    <div className="flex flex-col min-w-full gap-4">
       <CollectionSelect />
       {actions}
     </div>
