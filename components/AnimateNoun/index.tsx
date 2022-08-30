@@ -1,6 +1,6 @@
 import AnimationSelect from '../AnimationSelect'
-import NounLoadOrCreate from '../NounLoadOrCreate'
 import NounPreview from '../NounPreview'
+import NounSelectAndActions from '../NounSelectAndActions'
 
 const AnimateNoun = () => {
   const animations = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
@@ -14,7 +14,7 @@ const AnimateNoun = () => {
           <NounPreview animation={{}} seed={{}} />
         </div>
         <div className="w-full lg:w-96">
-          <NounLoadOrCreate />
+          <NounSelectAndActions />
         </div>
       </div>
       <AnimationSelect animations={animations} />
