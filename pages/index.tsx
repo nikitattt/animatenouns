@@ -37,25 +37,35 @@ const Home: NextPage<{ data: string }> = (props) => {
 
 export async function getStaticProps() {
   const artists: Artist[] = [
+    // {
+    //   name: 'Nounimator Jake',
+    //   dateAdded: '',
+    //   lastUpdate: '',
+    //   shortDescription:
+    //     'I create different nice animations. I am very good at it and bla bla bla ',
+    //   longBio:
+    //     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ut sagittis elit. Aliquam pharetra, felis hendrerit vulputate egestas, dolor odio tincidunt eros, non congue dui urna hendrerit tortor. Donec dapibus, magna in malesuada ullamcorper, mauris nisi lacinia erat, eget maximus ligula ligula sed lacus. Quisque posuere neque eu purus volutpat tempor. Donec eget enim et augue egestas mattis eu eu ligula. Praesent vulputate nibh id erat auctor, quis dictum justo dignissim.',
+    //   workExamples: ['', '', ''],
+    //   contacts: {
+    //     twitter: '@nounimator',
+    //     discord: 'nounimator#0001',
+    //     email: 'nounimator@nouns.wtf'
+    //   },
+    //   workCost: {
+    //     preferredCurrency: 'USD',
+    //     whenOne: 10
+    //   }
+    // },
     {
-      name: 'Nounimator Jake',
+      name: 'We are searching',
       dateAdded: '',
       lastUpdate: '',
-      shortDescription: '',
-      workExamples: ['', '', ''],
-      contacts: {},
-      workCost: {
-        preferredCurrency: 'USD',
-        whenOne: 10
-      }
-    },
-    {
-      name: 'Nounimator Kane',
-      dateAdded: '',
-      lastUpdate: '',
-      shortDescription: '',
-      workExamples: ['', '', '', ''],
-      contacts: {},
+      shortDescription: 'This is just placeholder :( We are actively searching for the artists. Are you are a pixel animation artist and would like to animate the nouniverse? Contact us to be featured in our bespoke artist directory!',
+      workExamples: ['https://i.imgur.com/9VkFQaU.gif', 'https://i.imgur.com/nimEegS.gif', 'https://i.imgur.com/AJXPeyI.gif'],
+      contacts: {
+        twitter: '@iamng_eth',
+        discord: 'iamng#3884',
+      },
       workCost: {
         preferredCurrency: 'USD',
         whenOne: 10

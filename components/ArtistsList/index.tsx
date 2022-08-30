@@ -1,5 +1,5 @@
 import { Artist } from '../../utils/types/artist'
-import ArtistBox from '../ArtistBox'
+import ArtistCard from '../ArtistCard'
 
 const ArtistsList = ({ artists }: { artists: Artist[] }) => {
   return (
@@ -7,7 +7,7 @@ const ArtistsList = ({ artists }: { artists: Artist[] }) => {
       {artists.map(function (artist, place) {
         return (
           <div key={place}>
-            <ArtistBox artist={artist} />
+            <ArtistCard artist={artist} />
           </div>
         )
       })}

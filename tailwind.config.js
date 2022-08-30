@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin')
+
 module.exports = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx}',
@@ -47,7 +50,8 @@ module.exports = {
       brand: {
         twitter: '#1da1f2',
         instagram: '#e1306c',
-        facebook: '#4267b2'
+        facebook: '#4267b2',
+        discord: '#5865F2'
       }
     },
     extend: {
@@ -77,5 +81,19 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        '.no-scrollbar::-webkit-scrollbar': {
+          display: 'none'
+        },
+        /* Hide scrollbar for IE, Edge and Firefox */
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none',  /* IE and Edge */
+          'scrollbar-width': 'none',  /* Firefox */
+        }
+      })
+    })
+  ]
 }
