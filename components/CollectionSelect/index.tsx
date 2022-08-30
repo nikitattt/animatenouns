@@ -4,8 +4,6 @@ const CollectionSelect = () => {
   const collection = useNounStore(state => state.collection)
   const setStatus = useNounStore(state => state.setStatus)
 
-  console.log(collection)
-
   return (
     <div className="p-3 w-full bg-teal rounded-2xl">
       <div className="flex flex-row justify-between">
