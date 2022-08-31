@@ -47,43 +47,42 @@ const OnChainNoun = () => {
     }
   }
 
+  const input = (
+    <input
+      className="w-24 p-1.5 rounded-lg outline-black font-medium"
+      type="number"
+      value={id}
+      min="0"
+      step="1"
+      onChange={(e) => setId(Number(e.target.value))}
+      placeholder="Id"
+    />
+  )
+
+  const button = (
+    <button
+      className="bg-black text-white py-1 px-3 rounded-lg text-sm"
+      onClick={loadNounFromChain}
+    >
+      Animate
+    </button>
+  )
+
   return (
     <div className="p-2 w-full px-2 bg-teal rounded-2xl">
       <div className="hidden sm:flex flex-row justify-between items-center">
         <div className="ml-1 font-medium">On-Chain Noun</div>
         <div className="flex flex-row gap-2 items-center">
-          <input
-            className="w-24 p-1.5 rounded-lg outline-black font-medium"
-            type="number"
-            value={id}
-            min="0"
-            step="1"
-            onChange={(e) => setId(Number(e.target.value))}
-            placeholder="Id"
-          />
-          <button
-            className="bg-black text-white py-1 px-3 rounded-lg text-sm"
-            onClick={loadNounFromChain}
-          >
-            Animate
-          </button>
+          {input}
+          {button}
         </div>
       </div>
       <div className="flex sm:hidden flex-col gap-2">
         <div className="flex flex-row justify-between items-center">
           <div className="ml-1 text-lg font-medium">On-Chain Noun</div>
-          <input
-            className="w-24 p-1.5 rounded-lg outline-black font-medium"
-            placeholder="Id"
-            value={id}
-          />
+          {input}
         </div>
-        <button
-          className="w-full bg-black text-white py-2 px-3 rounded-lg text-sm"
-          onClick={loadNounFromChain}
-        >
-          Animate
-        </button>
+        {button}
       </div>
     </div>
   )
