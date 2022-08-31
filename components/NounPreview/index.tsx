@@ -1,14 +1,6 @@
-import {
-  ImageData as LilImageData,
-  getNounData as getLilNounData
-} from '@lilnouns/assets'
-import { ImageData, getNounData } from '@nouns/assets'
-import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
 import clsx from 'clsx'
-import { Collections, useNounStore } from '../../state/noun'
-
-const lilPalette = LilImageData.palette
-const palette = ImageData.palette
+import { useNounStore } from '../../state/noun'
+import { nounImage } from '../../utils/nounImage'
 
 type NounPreviewProps = {
   animationActive?: boolean
@@ -21,24 +13,15 @@ const NounPreview = ({
   const activeNoun = useNounStore((state) => state.activeNoun)
 
   let image = <></>
-  if (activeNoun !== undefined) {
-    let svgBase64
+  if (collection && activeNoun) {
+    const src = nounImage(collection, activeNoun)
 
-    if (collection === Collections.lilNouns) {
-      const { parts, background } = getLilNounData(activeNoun)
-      const svgBinary = buildSVG(parts, lilPalette, background)
-      svgBase64 = Buffer.from(svgBinary).toString('base64')
-    } else {
-      const { parts, background } = getNounData(activeNoun)
-      const svgBinary = buildSVG(parts, palette, background)
-      svgBase64 = Buffer.from(svgBinary).toString('base64')
-    }
-
+    image = <img className="w-full h-full rounded-2xl" src={src} />
+  } else if (collection && !activeNoun) {
     image = (
-      <img
-        className="w-full h-full rounded-2xl"
-        src={`data:image/svg+xml;base64,${svgBase64}`}
-      />
+      <p className="text-grey font-display font-thin text-2xl tracking-wide text-center">
+        Load your noun
+      </p>
     )
   } else {
     image = (
