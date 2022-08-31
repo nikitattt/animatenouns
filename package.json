@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@lilnouns/assets": "^0.2.1",
+    "@nouns/assets": "^0.4.0",
     "@nouns/sdk": "^0.2.0",
     "clsx": "^1.1.1",
     "ethers": "^5.7.0",
