@@ -1,7 +1,4 @@
-import { AlchemyProvider } from '@ethersproject/providers'
 import create from 'zustand'
-
-import { constructContract } from '../utils/constructContract'
 
 type Seed = {
   head: number
@@ -28,7 +25,7 @@ const useNounStore = create<NounState>((set, get) => ({
   activeNoun: undefined,
   setStatus: (collection: string) => {
     if (collection as Collections) {
-      set({ collection: collection as Collections })
+      set({ collection: collection as Collections, activeNoun: undefined })
     } else {
       set({ collection: undefined, activeNoun: undefined })
     }
