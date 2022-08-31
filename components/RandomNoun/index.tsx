@@ -1,23 +1,13 @@
-import { getNounSeedFromBlockHash as getLilNounSeedFromBlockHash } from '@lilnouns/assets'
-import { getNounSeedFromBlockHash } from '@nouns/assets'
-import { Collections, useNounStore } from '../../state/noun'
+import { useNounStore } from '../../state/noun'
+import { randomSeed } from '../../utils/randomSeed'
 
 const RandomNoun = () => {
   const collection = useNounStore((state) => state.collection)
   const setActiveNoun = useNounStore((state) => state.setActiveNoun)
 
-  const randomSeed = () => {
-    const blockHash =
-      '0x5014101691e81d79a2eba711e698118e1a90c9be7acb2f40d7f200134ee53e01'
-    const nounId = Math.floor(Math.random() * 1000000 + 1)
-
-    switch (collection) {
-      case Collections.lilNouns:
-        setActiveNoun(getLilNounSeedFromBlockHash(nounId, blockHash))
-        break
-      case Collections.nouns:
-        setActiveNoun(getNounSeedFromBlockHash(nounId, blockHash))
-        break
+  const random = () => {
+    if (collection) {
+      setActiveNoun(randomSeed(collection))
     }
   }
 
@@ -44,7 +34,7 @@ const RandomNoun = () => {
   )
 
   return (
-    <button className="p-3 w-full bg-black rounded-2xl" onClick={randomSeed}>
+    <button className="p-3 w-full bg-black rounded-2xl" onClick={random}>
       <div className="flex flex-row justify-center items-center gap-1">
         <div className="text-white font-medium text-sm">
           I'll play my luck - Random
