@@ -1,8 +1,9 @@
 import { AlchemyProvider } from '@ethersproject/providers'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
-import { Seed, useNounStore } from '../../state/noun'
+import { useNounStore } from '../../state/noun'
 import { constructContract } from '../../utils/constructContract'
+import { Seed } from '../../utils/types/seed'
 
 const OnChainNoun = () => {
   const collection = useNounStore((state) => state.collection)

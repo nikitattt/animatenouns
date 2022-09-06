@@ -1,4 +1,5 @@
-import { Collections, useNounStore } from '../../state/noun'
+import { useNounStore } from '../../state/noun'
+import { Collections } from '../../utils/types/collections'
 import CollectionSelect from '../CollectionSelect'
 import OnChainNoun from '../OnChainNoun'
 import RandomNoun from '../RandomNoun'

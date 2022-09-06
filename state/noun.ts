@@ -1,17 +1,6 @@
 import create from 'zustand'
-
-type Seed = {
-  head: number
-  glasses: number
-  body: number
-  accessory: number
-  background: number
-}
-
-enum Collections {
-  nouns = 'Nouns',
-  lilNouns = 'Lil Nouns'
-}
+import { Collections } from '../utils/types/collections'
+import { Seed } from '../utils/types/seed'
 
 interface NounState {
   collection: undefined | Collections
@@ -33,6 +22,6 @@ const useNounStore = create<NounState>((set, get) => ({
   setActiveNoun: (seed: Seed) => set({ activeNoun: seed })
 }))
 
-export type { NounState, Seed }
+export type { NounState }
 
-export { useNounStore, Collections }
+export { useNounStore }

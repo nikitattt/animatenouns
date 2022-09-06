@@ -1,6 +1,6 @@
 import { getNounSeedFromBlockHash as getLilNounSeedFromBlockHash } from '@lilnouns/assets'
 import { getNounSeedFromBlockHash } from '@nouns/assets'
-import { Collections } from '../state/noun'
+import { Collections } from './types/collections'
 
 export const randomSeed = (collection: Collections) => {
   const blockHash =

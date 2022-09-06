@@ -1,4 +1,5 @@
-import { Collections, useNounStore } from '../../state/noun'
+import { useNounStore } from '../../state/noun'
+import { Collections } from '../../utils/types/collections'
 
 const CollectionSelect = () => {
   const collection = useNounStore((state) => state.collection)

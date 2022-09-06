@@ -1,10 +1,11 @@
-import { Collections, Seed } from '../state/noun'
 import {
   ImageData as LilImageData,
   getNounData as getLilNounData
 } from '@lilnouns/assets'
 import { ImageData, getNounData } from '@nouns/assets'
 import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
+import { Collections } from './types/collections'
+import { Seed } from './types/seed'
 
 const lilPalette = LilImageData.palette
 const palette = ImageData.palette
