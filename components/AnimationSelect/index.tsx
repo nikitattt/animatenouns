@@ -19,10 +19,42 @@ const AnimationSelect = () => {
   const activeNoun = useNounStore((state) => state.activeNoun)
   const listRef = useRef<HTMLDivElement>(null)
 
-  let animations = undefined
+  let listElements = <></>
 
   if (collection && activeNoun) {
-    animations = collectionToAnimation[collection].map(activeNoun.glasses)
+    const animations = collectionToAnimation[collection].map(activeNoun.glasses)
+    listElements = (
+      <div>
+        {animations.map(function (animation, place) {
+          return (
+            <div key={place}>
+              <div className="w-40 h-40">
+                <NounPreview animationActive={false} />
+              </div>
+              <div className="mt-2 w-10/12 mx-auto">
+                <div className="text-center text-grey text-sm">
+                  {animation.name}
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  } else {
+    listElements = (
+      <div className="flex flex-row gap-8">
+        <div className="flex justify-center w-40 h-40 bg-grey bg-opacity-10 rounded-2xl">
+          <div className="self-center my-auto text-center text-grey font-display font-thin text-sm">
+            Waiting
+            <br />
+            for a noun
+          </div>
+        </div>
+        <div className="w-40 h-40 bg-grey bg-opacity-5 rounded-2xl" />
+        <div className="w-40 h-40 bg-grey bg-opacity-[0.02] rounded-2xl" />
+      </div>
+    )
   }
 
   return (
@@ -48,19 +80,7 @@ const AnimationSelect = () => {
         ref={listRef}
         className="my-6 flex flex-row gap-8 overflow-scroll no-scrollbar"
       >
-        {animations &&
-          animations.map(function (animation, place) {
-            return (
-              <div key={place}>
-                <div className="w-40 h-40">
-                  <NounPreview animationActive={false} />
-                </div>
-                <div className="text-center text-grey mt-2">
-                  {animation.name}
-                </div>
-              </div>
-            )
-          })}
+        {listElements}
       </div>
     </div>
   )
