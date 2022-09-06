@@ -1,4 +1,5 @@
 import { Animation } from '../types/animation'
+import { AnimationsIdMap } from '../types/animationsIdMap'
 
 export interface ClassicNounAnimations {
   /*
@@ -25,5 +26,6 @@ export interface ClassicNounAnimations {
    * (Black frame, white then red eyes)
    */
   redEyesGlasses: Animation[]
-  mappings: Record<string, Array<any>>
+  animationsIdMaps: AnimationsIdMap[]
+  map: (glasses: number) => Animation[]
 }
