@@ -6,26 +6,26 @@ export interface ClassicNounAnimations {
    * Animations that can be applied to most "classic" and common
    * glasses with white then black eyes
    */
-  standardGlasses: Animation[]
+  readonly standardGlasses: Animation[]
   /*
    * Animations that can be applied to disco (black-rgb) type glasses
    */
-  discoGlasses: Animation[]
+  readonly discoGlasses: Animation[]
   /*
    * Animations that can be applied to fullBlack type glasses
    * (Black frame, black eyes and small white "glare")
    */
-  fullBlackGlasses: Animation[]
+  readonly fullBlackGlasses: Animation[]
   /*
    * Animations that can be applied to black type glasses
    * (Black frame, white then black eyes)
    */
-  blackGlasses: Animation[]
+  readonly blackGlasses: Animation[]
   /*
    * Animations that can be applied to red eye type glasses
    * (Black frame, white then red eyes)
    */
-  redEyesGlasses: Animation[]
-  animationsIdMaps: AnimationsIdMap[]
+  readonly redEyesGlasses: Animation[]
+  readonly animationsIdMaps: AnimationsIdMap[]
   map: (glasses: number) => Animation[]
 }

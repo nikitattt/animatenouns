@@ -3,12 +3,12 @@ import { AnimationsIdMap } from '../types/animationsIdMap'
 import { ClassicNounAnimations } from './interfaces'
 
 export class LilNounsAnimations implements ClassicNounAnimations {
-  animationsIdMaps: AnimationsIdMap[]
-  standardGlasses: Animation[]
-  discoGlasses: Animation[]
-  fullBlackGlasses: Animation[]
-  blackGlasses: Animation[]
-  redEyesGlasses: Animation[]
+  readonly standardGlasses: Animation[]
+  readonly discoGlasses: Animation[]
+  readonly fullBlackGlasses: Animation[]
+  readonly blackGlasses: Animation[]
+  readonly redEyesGlasses: Animation[]
+  readonly animationsIdMaps: AnimationsIdMap[]
 
   constructor() {
     this.standardGlasses = [

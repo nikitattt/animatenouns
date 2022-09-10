@@ -1,9 +1,9 @@
-import { Collections } from '../state/noun'
 import { Contract, ethers } from 'ethers'
 import { Provider } from '@ethersproject/providers'
 
 import NounsAbi from '../utils/abi/NounsToken.json'
 import LilNounsAbi from '../utils/abi/LilNounsToken.json'
+import { Collections } from './types/collections'
 
 export const constructContract = (
   collection: Collections,
