@@ -12,7 +12,7 @@ import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
 
 const lilPalette = LilImageData.palette
 
-class LilNounsAnimationsImplementations {
+class LilNounsAnimationsImpl {
   width = 320
   height = 320
 
@@ -76,17 +76,13 @@ export class LilNounsAnimations implements ClassicNounAnimations {
   readonly redEyesGlasses: Animation[]
   readonly animationsIdMaps: AnimationsIdMap[]
 
-  simpleBlinks = (seed: Seed) => {
-    return ''
-  }
-
   constructor() {
     this.standardGlasses = [
       {
         name: 'Simple Blinks',
         async animateNoun(seed) {
           console.log('LilNounsAnimations - start anim noun gen')
-          const lil = new LilNounsAnimationsImplementations(seed)
+          const lil = new LilNounsAnimationsImpl(seed)
 
           await lil.drawNoun()
           console.log('LilNounsAnimations - drew noun')
@@ -140,8 +136,4 @@ export class LilNounsAnimations implements ClassicNounAnimations {
 
     return []
   }
-
-  // simpleBlinks(seed: Seed) {
-
-  // }
 }
