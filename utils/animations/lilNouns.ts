@@ -9,6 +9,7 @@ import {
   getNounData as getLilNounData
 } from '@lilnouns/assets'
 import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
+import { AnimatedLilNounsPreviews } from './lil-nouns/previews'
 
 const lilPalette = LilImageData.palette
 
@@ -80,6 +81,7 @@ export class LilNounsAnimations implements ClassicNounAnimations {
     this.standardGlasses = [
       {
         name: 'Simple Blinks',
+        previewImg: AnimatedLilNounsPreviews.SimpleBlinks,
         async animateNoun(seed) {
           console.log('LilNounsAnimations - start anim noun gen')
           const lil = new LilNounsAnimationsImpl(seed)

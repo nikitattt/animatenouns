@@ -3,7 +3,7 @@ import { useNounStore } from '../../state/noun'
 import { ClassicNounAnimations } from '../../utils/animations/interfaces'
 import { LilNounsAnimations } from '../../utils/animations/lilNouns'
 import { Collections } from '../../utils/types/collections'
-import NounPreview from '../NounPreview'
+import AnimationPreview from '../AnimationPreview'
 import ScrollButton, { ScrollButtonDirection } from '../ScrollButton'
 
 const lilNounAnimations = new LilNounsAnimations()
@@ -29,7 +29,7 @@ const AnimationSelect = () => {
           return (
             <div key={place}>
               <div className="w-40 h-40">
-                <NounPreview animationActive={false} />
+                <AnimationPreview name={animation.name} previewImg={''} />
               </div>
               <div className="mt-2 w-10/12 mx-auto">
                 <div className="text-center text-grey text-sm">
