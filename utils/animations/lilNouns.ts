@@ -13,19 +13,19 @@ import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
 const lilPalette = LilImageData.palette
 
 class LilNounsAnimationsImpl {
-  width = 320
-  height = 320
+  readonly width = 320
+  readonly height = 320
 
-  readonly seed: Seed
-  readonly encoder: GifEncoder
-  readonly canvasCtx: CanvasRenderingContext2D
+  private seed: Seed
+  private encoder: GifEncoder
+  private canvasCtx: CanvasRenderingContext2D
 
   getAnimatedNoun(): string {
     const gifBase64 = this.encoder.out.getData().toString('base64')
     return `data:image/gif;base64,${gifBase64}`
   }
 
-  drawRect(x: number, y: number, w: number, h: number, color: string) {
+  private drawRect(x: number, y: number, w: number, h: number, color: string) {
     this.canvasCtx.fillStyle = color
     this.canvasCtx.fillRect(x, y, w, h)
   }

@@ -29,6 +29,7 @@ const NounPreview = ({
         //TODO: create class based on collection
         const lilsAnimations = new LilNounsAnimations()
 
+        //TODO: select animations dynamically
         const src = await lilsAnimations.standardGlasses
           .find((a) => a.name === 'Simple Blinks')
           ?.animateNoun(activeNoun)
