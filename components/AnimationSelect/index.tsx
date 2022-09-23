@@ -29,7 +29,10 @@ const AnimationSelect = () => {
           return (
             <div key={place}>
               <div className="w-40 h-40">
-                <AnimationPreview name={animation.name} previewImg={''} />
+                <AnimationPreview
+                  name={animation.name}
+                  previewImg={animation.previewImg}
+                />
               </div>
               <div className="mt-2 w-10/12 mx-auto">
                 <div className="text-center text-grey text-sm">

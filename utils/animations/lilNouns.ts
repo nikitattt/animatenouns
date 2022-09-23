@@ -9,7 +9,6 @@ import {
   getNounData as getLilNounData
 } from '@lilnouns/assets'
 import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
-import { AnimatedLilNounsPreviews } from './lil-nouns/previews'
 
 const lilPalette = LilImageData.palette
 
@@ -32,11 +31,27 @@ class LilNounsAnimationsImpl {
   }
 
   drawEyesSemiClosed(delay = 100) {
-    this.drawRect(110, 120, 40, 40, '#ffffff')
-    this.drawRect(180, 120, 40, 40, '#ffffff')
+    this.drawRect(110, 150, 40, 60, '#ffffff')
+    this.drawRect(200, 150, 40, 60, '#ffffff')
 
-    this.drawRect(130, 130, 20, 20, '#000000')
-    this.drawRect(200, 130, 20, 20, '#000000')
+    this.drawRect(110, 165, 40, 30, '#000000')
+    this.drawRect(200, 165, 40, 30, '#000000')
+
+    this.encoder.setDelay(delay)
+    this.encoder.addFrame(this.canvasCtx)
+  }
+
+  drawEyesClosed(delay = 100) {
+    this.drawRect(110, 150, 40, 60, '#ffffff')
+    this.drawRect(200, 150, 40, 60, '#ffffff')
+
+    this.encoder.setDelay(delay)
+    this.encoder.addFrame(this.canvasCtx)
+  }
+
+  drawEyesOpen(delay = 100) {
+    this.drawRect(110, 150, 40, 60, '#000000')
+    this.drawRect(200, 150, 40, 60, '#000000')
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
@@ -81,15 +96,25 @@ export class LilNounsAnimations implements ClassicNounAnimations {
     this.standardGlasses = [
       {
         name: 'Simple Blinks',
-        previewImg: AnimatedLilNounsPreviews.SimpleBlinks,
+        previewImg: '/previews/lil-nouns/simple-blinks.gif',
         async animateNoun(seed) {
           console.log('LilNounsAnimations - start anim noun gen')
           const lil = new LilNounsAnimationsImpl(seed)
 
           await lil.drawNoun()
           console.log('LilNounsAnimations - drew noun')
-          lil.drawEyesSemiClosed()
-          console.log('LilNounsAnimations - drew eyes semi closed')
+
+          lil.drawEyesSemiClosed(75)
+          lil.drawEyesClosed(50)
+          lil.drawEyesSemiClosed(75)
+
+          lil.drawEyesOpen(350)
+
+          lil.drawEyesSemiClosed(75)
+          lil.drawEyesClosed(50)
+          lil.drawEyesSemiClosed(75)
+
+          lil.drawEyesOpen(2000)
 
           const animatedNoun = lil.getAnimatedNoun()
 

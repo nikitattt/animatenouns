@@ -18,15 +18,16 @@ const AnimationPreview = ({
   return (
     <div
       onClick={() => setAnimation(name)}
-      className={clsx(
-        'flex items-center justify-center bg-grey-light bg-opacity-20',
-        'border-0 hover:border-2 border-pink cursor-pointer',
-        'rounded-2xl aspect-square w-full',
-        animation === name && 'border-2 border-pink'
-      )}
+      className="aspect-square w-full cursor-pointer"
     >
-      {/* TODO: show animated image 
-      <img className="w-full h-full rounded-2xl" src={previewImg} /> */}
+      <img
+        className={clsx(
+          'w-full h-full rounded-2xl',
+          'border-0 hover:border-2 border-transparent hover:border-pink',
+          animation === name && 'border-2 border-pink'
+        )}
+        src={previewImg}
+      />
     </div>
   )
 }
