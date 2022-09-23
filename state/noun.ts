@@ -27,7 +27,9 @@ const useNounStore = create<NounState>((set, get) => ({
       set({ collection: undefined, activeNoun: undefined })
     }
   },
-  setActiveNoun: (seed: Seed) => set({ activeNoun: seed }),
+  setActiveNoun: (seed: Seed) => {
+    set({ activeNoun: seed, animatedNoun: undefined, animation: undefined })
+  },
   setAnimation: async (name: string) => {
     set({ animation: name, animationInProgress: true })
 
