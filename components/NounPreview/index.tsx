@@ -13,40 +13,7 @@ const NounPreview = ({
 }: Readonly<NounPreviewProps>) => {
   const collection = useNounStore((state) => state.collection)
   const activeNoun = useNounStore((state) => state.activeNoun)
-  const animation = useNounStore((state) => state.animation)
-
-  const [animatedNoun, setAnimatedNoun] = useState<string | undefined>(
-    undefined
-  )
-  const [animatedNounRequested, setAnimatedNounRequested] = useState(false)
-
-  useEffect(() => {
-    async function getAnimatedNoun() {
-      console.log('NounPreview - checking for need to gen animated noun')
-      if (
-        collection &&
-        activeNoun &&
-        animation &&
-        !animatedNoun &&
-        !animatedNounRequested
-      ) {
-        //TODO: optimize calls to gen animated noun
-        setAnimatedNounRequested(true)
-        console.log('NounPreview - doing noun anim')
-        //TODO: create class based on collection
-        const lilsAnimations = new LilNounsAnimations()
-
-        const src = await lilsAnimations.standardGlasses
-          .find((a) => a.name === animation)
-          ?.animateNoun(activeNoun)
-
-        setAnimatedNoun(src)
-        setAnimatedNounRequested(false)
-      }
-    }
-
-    getAnimatedNoun()
-  }, [activeNoun, animation])
+  const animatedNoun = useNounStore((state) => state.animatedNoun)
 
   let image = <></>
   if (animatedNoun) {
