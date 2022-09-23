@@ -21,14 +21,25 @@ const useNounStore = create<NounState>((set, get) => ({
   animatedNoun: undefined,
   animationInProgress: false,
   setStatus: (collection: string) => {
+    let collectionToSet
+
     if (collection as Collections) {
-      set({ collection: collection as Collections, activeNoun: undefined })
+      collectionToSet = collection as Collections
     } else {
-      set({ collection: undefined, activeNoun: undefined })
+      collectionToSet = undefined
     }
+
+    set({
+      collection: collectionToSet,
+      activeNoun: undefined,
+      animatedNoun: undefined,
+      animation: undefined
+    })
   },
   setActiveNoun: (seed: Seed) => {
-    set({ activeNoun: seed, animatedNoun: undefined, animation: undefined })
+    if (!get().animationInProgress) {
+      set({ activeNoun: seed, animatedNoun: undefined, animation: undefined })
+    }
   },
   setAnimation: async (name: string) => {
     set({ animation: name, animationInProgress: true })
