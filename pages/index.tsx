@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast'
 import AnimateNoun from '../components/AnimateNoun'
 import BespokeService from '../components/BespokeService'
 import NavBar from '../components/NavBar'
+import ProgressOverlay from '../components/ProgressOverlay'
 import { Artist } from '../utils/types/artist'
 
 const Home: NextPage<{ data: string }> = (props) => {
@@ -33,6 +34,7 @@ const Home: NextPage<{ data: string }> = (props) => {
           <Link href="/artist-form">Apply as an animation artist</Link>
         </div>
       </footer>
+      <ProgressOverlay />
     </div>
   )
 }
