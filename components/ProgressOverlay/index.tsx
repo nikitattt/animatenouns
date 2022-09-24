@@ -16,7 +16,7 @@ const ProgressOverlay = () => {
               might take up to 30 seconds
             </div>
             <div className="mt-8">
-              Just stay with us 🙏
+              Just stay with us
               <br />
               ⌐◨-◨
             </div>

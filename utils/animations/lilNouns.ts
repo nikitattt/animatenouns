@@ -98,11 +98,9 @@ export class LilNounsAnimations implements ClassicNounAnimations {
         name: 'Simple Blinks',
         previewImg: '/previews/lil-nouns/simple-blinks.gif',
         async animateNoun(seed) {
-          console.log('LilNounsAnimations - start anim noun gen')
           const lil = new LilNounsAnimationsImpl(seed)
 
           await lil.drawNoun()
-          console.log('LilNounsAnimations - drew noun')
 
           lil.drawEyesSemiClosed(75)
           lil.drawEyesClosed(50)
@@ -117,8 +115,6 @@ export class LilNounsAnimations implements ClassicNounAnimations {
           lil.drawEyesOpen(2000)
 
           const animatedNoun = lil.getAnimatedNoun()
-
-          console.log('LilNounsAnimations - got animated noun string')
 
           return animatedNoun
         }
