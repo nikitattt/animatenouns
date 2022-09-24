@@ -51,12 +51,20 @@ const useNounStore = create<NounState>((set, get) => ({
     if (collection && activeNoun && animation) {
       const lilsAnimations = animationClass(collection)
 
-      const src = await lilsAnimations
+      const func = await lilsAnimations
         .map(activeNoun.glasses)
-        .find((a) => a.name === animation)
-        ?.animateNoun(activeNoun)
+        .find((a) => a.name === animation)?.animateNoun
 
-      set({ animatedNoun: src, animationInProgress: false })
+      if (func) {
+        setTimeout(() => {
+          func(activeNoun).then((src) => {
+            set({ animatedNoun: src, animationInProgress: false })
+          })
+        }, 10)
+      } else {
+        set({ animationInProgress: false })
+        //TODO: show some error message
+      }
     } else {
       set({ animationInProgress: false })
     }
