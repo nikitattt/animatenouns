@@ -51,11 +51,28 @@ const useNounStore = create<NounState>((set, get) => ({
     if (collection && activeNoun && animation) {
       const lilsAnimations = animationClass(collection)
 
-      const src = await lilsAnimations.standardGlasses
+      const src = await lilsAnimations
+        .map(activeNoun.glasses)
         .find((a) => a.name === animation)
         ?.animateNoun(activeNoun)
 
       set({ animatedNoun: src, animationInProgress: false })
+
+      // const worker = new Worker(
+      //   new URL('../workers/animate.worker.ts', import.meta.url)
+      // )
+
+      // worker.postMessage([collection, activeNoun, animation])
+
+      // worker.addEventListener('message', (event) => {
+      //   if (event.data) {
+      //     set({ animatedNoun: event.data })
+      //   } else {
+      //     //TODO: write else case
+      //   }
+
+      //   set({ animationInProgress: false })
+      // })
     } else {
       set({ animationInProgress: false })
     }
