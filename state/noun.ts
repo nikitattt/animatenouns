@@ -51,7 +51,8 @@ const useNounStore = create<NounState>((set, get) => ({
     if (collection && activeNoun && animation) {
       const lilsAnimations = animationClass(collection)
 
-      const src = await lilsAnimations.standardGlasses
+      const src = await lilsAnimations
+        .map(activeNoun.glasses)
         .find((a) => a.name === animation)
         ?.animateNoun(activeNoun)
 
