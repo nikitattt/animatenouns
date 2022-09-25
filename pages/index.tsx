@@ -29,10 +29,22 @@ const Home: NextPage<{ data: string }> = (props) => {
         </div>
       </main>
 
-      <footer className="flex mt-20">
-        <div className="mx-auto mb-6 text-pink underline hover:no-underline">
+      <footer className="flex flex-row justify-between mt-20 pb-6 px-8 text-pink">
+        <div>
+          Made with <span className="text-sm">♥</span> by{' '}
+          <a
+            type="_blank"
+            href="https://twitter.com/iamng_eth"
+            className="underline hover:no-underline"
+          >
+            ng
+          </a>
+        </div>
+        <div className="underline hover:no-underline">
           <Link href="/artist-form">Apply as an animation artist</Link>
         </div>
+        {/* To center middle elements */}
+        <div className="invisible">Made with ♥ by ng</div>
       </footer>
       <ProgressOverlay />
     </div>
