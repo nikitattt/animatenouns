@@ -42,18 +42,20 @@ const useNounStore = create<NounState>((set, get) => ({
     }
   },
   setAnimation: async (name: string) => {
-    set({ animation: name, animationInProgress: true })
-
     const collection = get().collection
     const activeNoun = get().activeNoun
     const animation = get().animation
 
-    if (collection && activeNoun && animation) {
+    if (animation === name) return
+
+    set({ animation: name, animationInProgress: true })
+
+    if (collection && activeNoun) {
       const lilsAnimations = animationClass(collection)
 
       const func = await lilsAnimations
         .map(activeNoun.glasses)
-        .find((a) => a.name === animation)?.animateNoun
+        .find((a) => a.name === name)?.animateNoun
 
       if (func) {
         setTimeout(() => {
