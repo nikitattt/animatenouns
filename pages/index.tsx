@@ -29,7 +29,7 @@ const Home: NextPage<{ data: string }> = (props) => {
         </div>
       </main>
 
-      <footer className="flex flex-row justify-between mt-20 pb-6 px-8 text-pink">
+      <footer className="flex flex-col md:flex-row justify-between items-center mt-20 pb-6 px-8 text-pink">
         <div>
           Made with <span className="text-sm">♥</span> by{' '}
           <a
