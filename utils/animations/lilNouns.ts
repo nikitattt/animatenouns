@@ -143,6 +143,31 @@ class LilNounsAnimationsImpl {
   }
 
   /*
+   * To be used for Disco glasses animations
+   */
+  private drawBitRect(
+    yTop: number,
+    yBottom: number,
+    h: number = 10,
+    delay = 100
+  ) {
+    this.drawRect(90, 150, 60, 60, '#000000')
+    this.drawRect(180, 150, 60, 60, '#000000')
+
+    this.drawRect(90, yBottom, 10, h, '#0ADC4D')
+    this.drawRect(180, yBottom, 10, h, '#0ADC4D')
+
+    this.drawRect(130, yTop, 10, h, '#FF0E0E')
+    this.drawRect(220, yTop, 10, h, '#FF0E0E')
+
+    this.drawRect(140, yBottom, 10, h, '#1929F4')
+    this.drawRect(230, yBottom, 10, h, '#1929F4')
+
+    this.encoder.setDelay(delay)
+    this.encoder.addFrame(this.canvasCtx)
+  }
+
+  /*
    * Animation functions
    */
 
@@ -212,6 +237,53 @@ class LilNounsAnimationsImpl {
     this.drawGlimpseRect(140, 150, 230, 150, 2000)
   }
 
+  async bits() {
+    await this.drawNoun()
+
+    this.drawBitRect(150, 180, 30, 25)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 350)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 350)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 150)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 350)
+
+    this.drawBitRect(150, 180, 30, 50)
+    this.drawBitRect(170, 200, 10, 50)
+
+    this.drawBitRect(150, 180, 30, 25)
+
+    this.drawBitRect(150, 180, 10, 2000)
+  }
+
   async drawNoun() {
     const { parts, background } = getLilNounData(this.seed)
     const svgBinary = buildSVG(parts, lilPalette, background)
@@ -277,7 +349,17 @@ export class LilNounsAnimations implements ClassicNounAnimations {
         }
       }
     ]
-    this.discoGlasses = []
+    this.discoGlasses = [
+      {
+        name: 'Bits',
+        previewImg: '/previews/lil-nouns/bits.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+          await lil.bits()
+          return lil.getAnimatedNoun()
+        }
+      }
+    ]
     this.fullBlackGlasses = [
       {
         name: 'Side Glimpses',
