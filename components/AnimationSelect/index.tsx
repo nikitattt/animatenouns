@@ -24,7 +24,7 @@ const AnimationSelect = () => {
   if (collection && activeNoun) {
     const animations = collectionToAnimation[collection].map(activeNoun.glasses)
     listElements = (
-      <div>
+      <div className="flex flex-row gap-8">
         {animations.map(function (animation, place) {
           return (
             <div key={place}>
