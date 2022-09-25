@@ -50,8 +50,22 @@ class LilNounsAnimationsImpl {
   }
 
   drawEyesOpen(delay = 100) {
+    this.drawRect(90, 150, 20, 60, '#ffffff')
+    this.drawRect(180, 150, 40, 60, '#ffffff')
+
     this.drawRect(110, 150, 40, 60, '#000000')
     this.drawRect(200, 150, 40, 60, '#000000')
+
+    this.encoder.setDelay(delay)
+    this.encoder.addFrame(this.canvasCtx)
+  }
+
+  drawEyesLeft(delay = 100) {
+    this.drawRect(110, 150, 40, 60, '#ffffff')
+    this.drawRect(200, 150, 40, 60, '#ffffff')
+
+    this.drawRect(90, 150, 40, 60, '#000000')
+    this.drawRect(180, 150, 40, 60, '#000000')
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
@@ -101,6 +115,35 @@ export class LilNounsAnimations implements ClassicNounAnimations {
           const lil = new LilNounsAnimationsImpl(seed)
 
           await lil.drawNoun()
+
+          lil.drawEyesSemiClosed(75)
+          lil.drawEyesClosed(50)
+          lil.drawEyesSemiClosed(75)
+
+          lil.drawEyesOpen(350)
+
+          lil.drawEyesSemiClosed(75)
+          lil.drawEyesClosed(50)
+          lil.drawEyesSemiClosed(75)
+
+          lil.drawEyesOpen(2000)
+
+          const animatedNoun = lil.getAnimatedNoun()
+
+          return animatedNoun
+        }
+      },
+      {
+        name: 'Left And Blinks',
+        previewImg: '/previews/lil-nouns/left-and-blinks.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+
+          await lil.drawNoun()
+
+          lil.drawEyesLeft(350)
+
+          lil.drawEyesOpen(500)
 
           lil.drawEyesSemiClosed(75)
           lil.drawEyesClosed(50)
