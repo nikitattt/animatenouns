@@ -1,9 +1,11 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { Toaster } from 'react-hot-toast'
 import AnimateNoun from '../components/AnimateNoun'
 import BespokeService from '../components/BespokeService'
 import NavBar from '../components/NavBar'
+import ProgressOverlay from '../components/ProgressOverlay'
 import { Artist } from '../utils/types/artist'
 
 const Home: NextPage<{ data: string }> = (props) => {
@@ -17,6 +19,7 @@ const Home: NextPage<{ data: string }> = (props) => {
         <title>Animate Nouns</title>
         <meta name="description" content="Animate your noun here" />
       </Head>
+      <Toaster position="top-right" />
 
       <NavBar />
       <main className="mt-20 px-8 sm:px-20 md:px-40">
@@ -26,11 +29,24 @@ const Home: NextPage<{ data: string }> = (props) => {
         </div>
       </main>
 
-      <footer className="flex mt-20">
-        <div className="mx-auto mb-6 text-pink underline hover:no-underline">
+      <footer className="flex flex-col md:flex-row justify-between items-center mt-20 pb-6 px-8 text-pink">
+        <div>
+          Made with <span className="text-sm">♥</span> by{' '}
+          <a
+            type="_blank"
+            href="https://twitter.com/iamng_eth"
+            className="underline hover:no-underline"
+          >
+            ng
+          </a>
+        </div>
+        <div className="underline hover:no-underline">
           <Link href="/artist-form">Apply as an animation artist</Link>
         </div>
+        {/* To center middle elements */}
+        <div className="invisible">Made with ♥ by ng</div>
       </footer>
+      <ProgressOverlay />
     </div>
   )
 }
@@ -60,11 +76,16 @@ export async function getStaticProps() {
       name: 'We are searching',
       dateAdded: '',
       lastUpdate: '',
-      shortDescription: 'This is just placeholder :( We are actively searching for the artists. Are you are a pixel animation artist and would like to animate the nouniverse? Contact us to be featured in our bespoke artist directory!',
-      workExamples: ['https://i.imgur.com/9VkFQaU.gif', 'https://i.imgur.com/nimEegS.gif', 'https://i.imgur.com/AJXPeyI.gif'],
+      shortDescription:
+        'This is just placeholder :( We are actively searching for the artists. Are you are a pixel animation artist and would like to animate the nouniverse? Contact us to be featured in our bespoke artist directory!',
+      workExamples: [
+        'https://i.imgur.com/9VkFQaU.gif',
+        'https://i.imgur.com/nimEegS.gif',
+        'https://i.imgur.com/AJXPeyI.gif'
+      ],
       contacts: {
         twitter: '@iamng_eth',
-        discord: 'iamng#3884',
+        discord: 'iamng#3884'
       },
       workCost: {
         preferredCurrency: 'USD',
