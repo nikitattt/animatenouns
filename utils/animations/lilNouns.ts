@@ -232,7 +232,35 @@ export class LilNounsAnimations implements ClassicNounAnimations {
     ]
     this.discoGlasses = []
     this.fullBlackGlasses = []
-    this.redEyesGlasses = []
+    this.redEyesGlasses = [
+      {
+        name: 'Simple Blinks',
+        previewImg: '/previews/lil-nouns/simple-blinks-red.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+          await lil.simpleBlinks(LilColorCode.red)
+          return lil.getAnimatedNoun()
+        }
+      },
+      {
+        name: 'Left And Blinks',
+        previewImg: '/previews/lil-nouns/left-and-blinks-red.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+          await lil.leftAndBlinks(LilColorCode.red)
+          return lil.getAnimatedNoun()
+        }
+      },
+      {
+        name: 'Left-Left',
+        previewImg: '/previews/lil-nouns/left-left-red.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+          await lil.leftLeft(LilColorCode.red)
+          return lil.getAnimatedNoun()
+        }
+      }
+    ]
 
     // TODO: need to add 8.8 art. Require npm package update
     this.animationsIdMaps = [
