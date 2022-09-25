@@ -18,7 +18,7 @@ const AnimateNoun = () => {
           <NounSelectAndActions />
         </div>
       </div>
-      <AnimationSelect animations={animations} />
+      <AnimationSelect />
     </div>
   )
 }

@@ -37,7 +37,7 @@ const RandomNoun = () => {
     <button className="p-3 w-full bg-black rounded-2xl" onClick={random}>
       <div className="flex flex-row justify-center items-center gap-1">
         <div className="text-white font-medium text-sm">
-          I'll play my luck - Random
+          I will play my luck - Random
         </div>
         {fireIcon}
       </div>
