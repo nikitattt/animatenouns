@@ -197,6 +197,7 @@ export class LilNounsAnimations implements ClassicNounAnimations {
   readonly standardGlasses: Animation[]
   readonly discoGlasses: Animation[]
   readonly fullBlackGlasses: Animation[]
+  readonly blackGlasses: Animation[]
   readonly redEyesGlasses: Animation[]
   readonly animationsIdMaps: AnimationsIdMap[]
 
@@ -232,6 +233,17 @@ export class LilNounsAnimations implements ClassicNounAnimations {
     ]
     this.discoGlasses = []
     this.fullBlackGlasses = []
+    this.blackGlasses = [
+      {
+        name: 'Simple Blinks',
+        previewImg: '/previews/lil-nouns/simple-blinks-black.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+          await lil.simpleBlinks(LilColorCode.classic)
+          return lil.getAnimatedNoun()
+        }
+      }
+    ]
     this.redEyesGlasses = [
       {
         name: 'Simple Blinks',
@@ -265,7 +277,7 @@ export class LilNounsAnimations implements ClassicNounAnimations {
     // TODO: need to add 8.8 art. Require npm package update
     this.animationsIdMaps = [
       {
-        supportedId: '0,3,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20',
+        supportedId: '0,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20',
         animations: this.standardGlasses
       },
       {
@@ -275,6 +287,10 @@ export class LilNounsAnimations implements ClassicNounAnimations {
       {
         supportedId: '2',
         animations: this.discoGlasses
+      },
+      {
+        supportedId: '3',
+        animations: this.blackGlasses
       },
       {
         supportedId: '7',

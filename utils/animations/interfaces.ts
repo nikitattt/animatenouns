@@ -17,6 +17,11 @@ export interface ClassicNounAnimations {
    */
   readonly fullBlackGlasses: Animation[]
   /*
+   * Animations that can be applied to black type glasses
+   * (Black frame, white then black eyes)
+   */
+  readonly blackGlasses: Animation[]
+  /*
    * Animations that can be applied to red eye type glasses
    * (Black frame, white then red eyes)
    */
