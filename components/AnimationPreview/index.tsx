@@ -23,8 +23,8 @@ const AnimationPreview = ({
       <img
         className={clsx(
           'w-full h-full rounded-2xl',
-          'border-0 hover:border-2 border-transparent hover:border-pink',
-          animation === name && 'border-2 border-pink'
+          'border-2 border-transparent hover:border-pink',
+          animation === name && 'border-pink'
         )}
         src={previewImg}
       />
