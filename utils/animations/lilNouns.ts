@@ -161,6 +161,27 @@ export class LilNounsAnimations implements ClassicNounAnimations {
 
           return animatedNoun
         }
+      },
+      {
+        name: 'Left-Left',
+        previewImg: '/previews/lil-nouns/left-left.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+
+          await lil.drawNoun()
+
+          lil.drawEyesLeft(350)
+
+          lil.drawEyesOpen(750)
+
+          lil.drawEyesLeft(350)
+
+          lil.drawEyesOpen(2000)
+
+          const animatedNoun = lil.getAnimatedNoun()
+
+          return animatedNoun
+        }
       }
     ]
     this.discoGlasses = []
