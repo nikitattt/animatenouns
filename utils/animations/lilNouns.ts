@@ -30,6 +30,10 @@ class LilNounsAnimationsImpl {
     return `data:image/gif;base64,${gifBase64}`
   }
 
+  /*
+   * Utility functions
+   */
+
   private drawRect(x: number, y: number, w: number, h: number, color: string) {
     this.canvasCtx.fillStyle = color
     this.canvasCtx.fillRect(x, y, w, h)
@@ -118,6 +122,30 @@ class LilNounsAnimationsImpl {
     this.encoder.addFrame(this.canvasCtx)
   }
 
+  /*
+   * To be used for FullBlack glasses animations
+   */
+  private drawGlimpseRect(
+    x1: number,
+    y1: number,
+    x2: number,
+    y2: number,
+    delay = 100
+  ) {
+    this.drawRect(90, 150, 60, 60, '#000000')
+    this.drawRect(180, 150, 60, 60, '#000000')
+
+    this.drawRect(x1, y1, 10, 30, '#ffffff')
+    this.drawRect(x2, y2, 10, 30, '#ffffff')
+
+    this.encoder.setDelay(delay)
+    this.encoder.addFrame(this.canvasCtx)
+  }
+
+  /*
+   * Animation functions
+   */
+
   async simpleBlinks(color: LilColorCode) {
     await this.drawNoun()
 
@@ -164,6 +192,24 @@ class LilNounsAnimationsImpl {
     this.drawEyesLeft(350, color)
 
     this.drawEyesOpen(2000, color)
+  }
+
+  async sideGlimpse() {
+    await this.drawNoun()
+
+    this.drawGlimpseRect(130, 150, 220, 150, 25)
+    this.drawGlimpseRect(120, 150, 210, 150, 25)
+    this.drawGlimpseRect(110, 150, 200, 150, 25)
+    this.drawGlimpseRect(100, 150, 190, 150, 25)
+
+    this.drawGlimpseRect(90, 150, 180, 150, 1000)
+
+    this.drawGlimpseRect(100, 150, 190, 150, 75)
+    this.drawGlimpseRect(110, 150, 200, 150, 65)
+    this.drawGlimpseRect(120, 150, 210, 150, 55)
+    this.drawGlimpseRect(130, 150, 220, 150, 45)
+
+    this.drawGlimpseRect(140, 150, 230, 150, 2000)
   }
 
   async drawNoun() {
@@ -232,7 +278,17 @@ export class LilNounsAnimations implements ClassicNounAnimations {
       }
     ]
     this.discoGlasses = []
-    this.fullBlackGlasses = []
+    this.fullBlackGlasses = [
+      {
+        name: 'Side Glimpses',
+        previewImg: '/previews/lil-nouns/side-glimpse.gif',
+        async animateNoun(seed) {
+          const lil = new LilNounsAnimationsImpl(seed)
+          await lil.sideGlimpse()
+          return lil.getAnimatedNoun()
+        }
+      }
+    ]
     this.blackGlasses = [
       {
         name: 'Simple Blinks',
