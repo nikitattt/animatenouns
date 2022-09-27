@@ -3,7 +3,12 @@ import { AnimationsIdMap } from '../types/animationsIdMap'
 import { Seed } from '../types/seed'
 import { ClassicNounAnimations } from './interfaces'
 import { default as GifEncoder } from 'gifencoder'
-import { createCanvas, loadImage, CanvasRenderingContext2D } from 'canvas'
+import {
+  createCanvas,
+  loadImage,
+  CanvasRenderingContext2D,
+  Image
+} from 'canvas'
 import {
   ImageData as LilImageData,
   getNounData as getLilNounData
@@ -22,6 +27,7 @@ class LilNounsAnimationsImpl {
   readonly height = 320
 
   private seed: Seed
+  private nounImage: Image | undefined
   private encoder: GifEncoder
   private canvasCtx: CanvasRenderingContext2D
 
@@ -37,6 +43,13 @@ class LilNounsAnimationsImpl {
   private drawRect(x: number, y: number, w: number, h: number, color: string) {
     this.canvasCtx.fillStyle = color
     this.canvasCtx.fillRect(x, y, w, h)
+  }
+
+  // TODO: better algo without this
+  private drawNounImage() {
+    if (this.nounImage) {
+      this.canvasCtx.drawImage(this.nounImage, 0, 0)
+    }
   }
 
   private drawEyesSemiClosed(delay = 100, color: LilColorCode) {
@@ -65,6 +78,8 @@ class LilNounsAnimationsImpl {
   }
 
   private drawEyesClosed(delay = 100) {
+    this.drawNounImage()
+
     this.drawRect(110, 150, 40, 60, '#ffffff')
     this.drawRect(200, 150, 40, 60, '#ffffff')
 
@@ -73,6 +88,8 @@ class LilNounsAnimationsImpl {
   }
 
   private drawEyesOpen(delay = 100, color: LilColorCode) {
+    this.drawNounImage()
+
     let colorOne
     let colorTwo
 
@@ -98,6 +115,8 @@ class LilNounsAnimationsImpl {
   }
 
   private drawEyesLeft(delay = 100, color: LilColorCode) {
+    this.drawNounImage()
+
     let colorOne
     let colorTwo
 
@@ -132,6 +151,8 @@ class LilNounsAnimationsImpl {
     y2: number,
     delay = 100
   ) {
+    this.drawNounImage()
+
     this.drawRect(90, 150, 60, 60, '#000000')
     this.drawRect(180, 150, 60, 60, '#000000')
 
@@ -151,6 +172,8 @@ class LilNounsAnimationsImpl {
     h: number = 10,
     delay = 100
   ) {
+    this.drawNounImage()
+
     this.drawRect(90, 150, 60, 60, '#000000')
     this.drawRect(180, 150, 60, 60, '#000000')
 
@@ -290,6 +313,8 @@ class LilNounsAnimationsImpl {
     const svgBase64 = Buffer.from(svgBinary).toString('base64')
 
     const image = await loadImage(`data:image/svg+xml;base64,${svgBase64}`)
+
+    this.nounImage = image
 
     this.canvasCtx.drawImage(image, 0, 0)
 
