@@ -3,10 +3,12 @@ import { Collections } from '../../utils/types/collections'
 import CollectionSelect from '../CollectionSelect'
 import OnChainNoun from '../OnChainNoun'
 import RandomNoun from '../RandomNoun'
+import SaveNoun from '../SaveNoun'
 import TraitsSelect from '../TraitsSelect'
 
 const NounSelectAndActions = () => {
   const collection = useNounStore((state) => state.collection)
+  const animatedNoun = useNounStore((state) => state.animatedNoun)
 
   let actions = <></>
 
@@ -16,6 +18,7 @@ const NounSelectAndActions = () => {
         <div className="flex flex-col gap-4">
           <OnChainNoun />
           <RandomNoun />
+          <SaveNoun />
         </div>
       )
       break
