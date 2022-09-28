@@ -26,6 +26,8 @@ class LilNounsAnimationsImpl {
   private canvasCtx: CanvasRenderingContext2D
 
   getAnimatedNoun(): string {
+    this.encoder.finish()
+
     const gifBase64 = this.encoder.out.getData().toString('base64')
     return `data:image/gif;base64,${gifBase64}`
   }
