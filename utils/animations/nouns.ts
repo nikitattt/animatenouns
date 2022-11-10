@@ -38,7 +38,6 @@ class NounsAnimationsImpl {
     this.canvasCtx.fillRect(x, y, w, h)
   }
 
-  //TODO:
   private drawEyesSemiClosed(delay = 100, color: ColorCode) {
     let colorOne
     let colorTwo
@@ -54,26 +53,24 @@ class NounsAnimationsImpl {
         break
     }
 
-    this.drawRect(110, 150, 40, 60, colorOne)
-    this.drawRect(200, 150, 40, 60, colorOne)
+    this.drawRect(130, 120, 20, 40, colorOne)
+    this.drawRect(200, 120, 20, 40, colorOne)
 
-    this.drawRect(110, 165, 40, 30, colorTwo)
-    this.drawRect(200, 165, 40, 30, colorTwo)
+    this.drawRect(130, 130, 20, 20, colorTwo)
+    this.drawRect(200, 130, 20, 20, colorTwo)
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
   }
 
-  //TODO:
   private drawEyesClosed(delay = 100) {
-    this.drawRect(110, 150, 40, 60, '#ffffff')
-    this.drawRect(200, 150, 40, 60, '#ffffff')
+    this.drawRect(130, 120, 20, 40, '#ffffff')
+    this.drawRect(200, 120, 20, 40, '#ffffff')
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
   }
 
-  //TODO:
   private drawEyesOpen(delay = 100, color: ColorCode) {
     let colorOne
     let colorTwo
@@ -89,11 +86,11 @@ class NounsAnimationsImpl {
         break
     }
 
-    this.drawRect(90, 150, 20, 60, colorOne)
-    this.drawRect(180, 150, 40, 60, colorOne)
+    this.drawRect(110, 120, 20, 40, colorOne)
+    this.drawRect(180, 120, 20, 40, colorOne)
 
-    this.drawRect(110, 150, 40, 60, colorTwo)
-    this.drawRect(200, 150, 40, 60, colorTwo)
+    this.drawRect(130, 120, 20, 40, colorTwo)
+    this.drawRect(200, 120, 20, 40, colorTwo)
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
@@ -332,9 +329,8 @@ export class NounsAnimations implements ClassicNounAnimations {
   constructor() {
     this.standardGlasses = [
       {
-        //TODO:
         name: 'Simple Blinks',
-        previewImg: '/previews/lil-nouns/simple-blinks.gif',
+        previewImg: '/previews/nouns/simple-blinks.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.simpleBlinks(ColorCode.classic)
