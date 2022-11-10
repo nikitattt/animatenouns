@@ -124,7 +124,6 @@ class NounsAnimationsImpl {
   /*
    * To be used for FullBlack glasses animations
    */
-  //TODO:
   private drawGlimpseRect(
     x1: number,
     y1: number,
@@ -132,11 +131,11 @@ class NounsAnimationsImpl {
     y2: number,
     delay = 100
   ) {
-    this.drawRect(90, 150, 60, 60, '#000000')
-    this.drawRect(180, 150, 60, 60, '#000000')
+    this.drawRect(110, 120, 40, 40, '#000000')
+    this.drawRect(180, 120, 40, 40, '#000000')
 
-    this.drawRect(x1, y1, 10, 30, '#ffffff')
-    this.drawRect(x2, y2, 10, 30, '#ffffff')
+    this.drawRect(x1, y1, 10, 20, '#ffffff')
+    this.drawRect(x2, y2, 10, 20, '#ffffff')
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
@@ -219,23 +218,17 @@ class NounsAnimationsImpl {
     this.drawEyesOpen(2000, color)
   }
 
-  //TODO:
   async sideGlimpse() {
     await this.drawNoun()
 
-    this.drawGlimpseRect(130, 150, 220, 150, 25)
-    this.drawGlimpseRect(120, 150, 210, 150, 25)
-    this.drawGlimpseRect(110, 150, 200, 150, 25)
-    this.drawGlimpseRect(100, 150, 190, 150, 25)
+    this.drawGlimpseRect(130, 120, 200, 120, 25)
+    this.drawGlimpseRect(120, 120, 190, 120, 25)
 
-    this.drawGlimpseRect(90, 150, 180, 150, 1000)
+    this.drawGlimpseRect(110, 120, 180, 120, 1000)
 
-    this.drawGlimpseRect(100, 150, 190, 150, 75)
-    this.drawGlimpseRect(110, 150, 200, 150, 65)
-    this.drawGlimpseRect(120, 150, 210, 150, 55)
-    this.drawGlimpseRect(130, 150, 220, 150, 45)
-
-    this.drawGlimpseRect(140, 150, 230, 150, 2000)
+    this.drawGlimpseRect(120, 120, 190, 120, 75)
+    this.drawGlimpseRect(130, 120, 200, 120, 65)
+    this.drawGlimpseRect(140, 120, 210, 120, 2000)
   }
 
   //TODO:
@@ -286,7 +279,6 @@ class NounsAnimationsImpl {
     this.drawBitRect(150, 180, 10, 2000)
   }
 
-  //TODO:
   async drawNoun() {
     const { parts, background } = getNounData(this.seed)
     const svgBinary = buildSVG(parts, palette, background)
@@ -366,9 +358,8 @@ export class NounsAnimations implements ClassicNounAnimations {
     ]
     this.fullBlackGlasses = [
       {
-        //TODO:
-        name: 'Side Glimpses',
-        previewImg: '/previews/lil-nouns/side-glimpse.gif',
+        name: 'Side Glimpse',
+        previewImg: '/previews/nouns/side-glimpse.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.sideGlimpse()
