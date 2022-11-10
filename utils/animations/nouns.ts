@@ -172,7 +172,6 @@ class NounsAnimationsImpl {
   /*
    * Animation functions
    */
-  //TODO:
   async simpleBlinks(color: ColorCode) {
     await this.drawNoun()
 
