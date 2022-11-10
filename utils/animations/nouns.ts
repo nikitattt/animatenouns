@@ -207,7 +207,6 @@ class NounsAnimationsImpl {
     this.drawEyesOpen(2000, color)
   }
 
-  //TODO:
   async leftLeft(color: ColorCode) {
     await this.drawNoun()
 
@@ -335,7 +334,6 @@ export class NounsAnimations implements ClassicNounAnimations {
         }
       },
       {
-        //TODO:
         name: 'Left And Blinks',
         previewImg: '/previews/nouns/left-and-blinks.gif',
         async animateNoun(seed) {
@@ -345,9 +343,8 @@ export class NounsAnimations implements ClassicNounAnimations {
         }
       },
       {
-        //TODO:
         name: 'Left-Left',
-        previewImg: '/previews/lil-nouns/left-left.gif',
+        previewImg: '/previews/nouns/left-left.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.leftLeft(ColorCode.classic)
