@@ -378,7 +378,6 @@ export class NounsAnimations implements ClassicNounAnimations {
     ]
     this.blackGlasses = [
       {
-        //TODO:
         name: 'Simple Blinks',
         previewImg: '/previews/nouns/simple-blinks-black.gif',
         async animateNoun(seed) {
