@@ -96,7 +96,6 @@ class NounsAnimationsImpl {
     this.encoder.addFrame(this.canvasCtx)
   }
 
-  //TODO:
   private drawEyesLeft(delay = 100, color: ColorCode) {
     let colorOne
     let colorTwo
@@ -112,11 +111,11 @@ class NounsAnimationsImpl {
         break
     }
 
-    this.drawRect(110, 150, 40, 60, colorOne)
-    this.drawRect(200, 150, 40, 60, colorOne)
+    this.drawRect(110, 120, 20, 40, colorTwo)
+    this.drawRect(180, 120, 20, 40, colorTwo)
 
-    this.drawRect(90, 150, 40, 60, colorTwo)
-    this.drawRect(180, 150, 40, 60, colorTwo)
+    this.drawRect(130, 120, 20, 40, colorOne)
+    this.drawRect(200, 120, 20, 40, colorOne)
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
@@ -188,7 +187,6 @@ class NounsAnimationsImpl {
     this.drawEyesOpen(2000, color)
   }
 
-  //TODO:
   async leftAndBlinks(color: ColorCode) {
     await this.drawNoun()
 
@@ -339,7 +337,7 @@ export class NounsAnimations implements ClassicNounAnimations {
       {
         //TODO:
         name: 'Left And Blinks',
-        previewImg: '/previews/lil-nouns/left-and-blinks.gif',
+        previewImg: '/previews/nouns/left-and-blinks.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.leftAndBlinks(ColorCode.classic)
