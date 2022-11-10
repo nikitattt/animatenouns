@@ -380,10 +380,19 @@ export class NounsAnimations implements ClassicNounAnimations {
       {
         //TODO:
         name: 'Simple Blinks',
-        previewImg: '/previews/lil-nouns/simple-blinks-black.gif',
+        previewImg: '/previews/nouns/simple-blinks-black.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.simpleBlinks(ColorCode.classic)
+          return lil.getAnimatedNoun()
+        }
+      },
+      {
+        name: 'Left-Left',
+        previewImg: '/previews/nouns/left-left-black.gif',
+        async animateNoun(seed) {
+          const lil = new NounsAnimationsImpl(seed)
+          await lil.leftLeft(ColorCode.classic)
           return lil.getAnimatedNoun()
         }
       }
