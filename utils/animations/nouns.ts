@@ -390,9 +390,8 @@ export class NounsAnimations implements ClassicNounAnimations {
     ]
     this.redEyesGlasses = [
       {
-        //TODO:
         name: 'Simple Blinks',
-        previewImg: '/previews/lil-nouns/simple-blinks-red.gif',
+        previewImg: '/previews/nouns/simple-blinks-red.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.simpleBlinks(ColorCode.red)
@@ -400,9 +399,8 @@ export class NounsAnimations implements ClassicNounAnimations {
         }
       },
       {
-        //TODO:
         name: 'Left And Blinks',
-        previewImg: '/previews/lil-nouns/left-and-blinks-red.gif',
+        previewImg: '/previews/nouns/left-and-blinks-red.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.leftAndBlinks(ColorCode.red)
@@ -410,9 +408,8 @@ export class NounsAnimations implements ClassicNounAnimations {
         }
       },
       {
-        //TODO:
         name: 'Left-Left',
-        previewImg: '/previews/lil-nouns/left-left-red.gif',
+        previewImg: '/previews/nouns/left-left-red.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.leftLeft(ColorCode.red)
