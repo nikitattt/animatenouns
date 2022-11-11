@@ -2,16 +2,17 @@ import { useRef } from 'react'
 import { useNounStore } from '../../state/noun'
 import { ClassicNounAnimations } from '../../utils/animations/interfaces'
 import { LilNounsAnimations } from '../../utils/animations/lilNouns'
+import { NounsAnimations } from '../../utils/animations/nouns'
 import { Collections } from '../../utils/types/collections'
 import AnimationPreview from '../AnimationPreview'
 import ScrollButton, { ScrollButtonDirection } from '../ScrollButton'
 
 const lilNounAnimations = new LilNounsAnimations()
+const nounAnimations = new NounsAnimations()
 
 const collectionToAnimation: Record<Collections, ClassicNounAnimations> = {
   [Collections.lilNouns]: lilNounAnimations,
-  // TODO: change to nouns class
-  [Collections.nouns]: lilNounAnimations
+  [Collections.nouns]: nounAnimations
 }
 
 const AnimationSelect = () => {
