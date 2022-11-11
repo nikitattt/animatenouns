@@ -144,24 +144,23 @@ class NounsAnimationsImpl {
   /*
    * To be used for Disco glasses animations
    */
-  //TODO:
   private drawBitRect(
     yTop: number,
     yBottom: number,
     h: number = 10,
     delay = 100
   ) {
-    this.drawRect(90, 150, 60, 60, '#000000')
-    this.drawRect(180, 150, 60, 60, '#000000')
+    this.drawRect(110, 120, 40, 40, '#000000')
+    this.drawRect(180, 120, 40, 40, '#000000')
 
-    this.drawRect(90, yBottom, 10, h, '#0ADC4D')
+    this.drawRect(110, yBottom, 10, h, '#0ADC4D')
     this.drawRect(180, yBottom, 10, h, '#0ADC4D')
 
     this.drawRect(130, yTop, 10, h, '#FF0E0E')
-    this.drawRect(220, yTop, 10, h, '#FF0E0E')
+    this.drawRect(200, yTop, 10, h, '#FF0E0E')
 
     this.drawRect(140, yBottom, 10, h, '#1929F4')
-    this.drawRect(230, yBottom, 10, h, '#1929F4')
+    this.drawRect(210, yBottom, 10, h, '#1929F4')
 
     this.encoder.setDelay(delay)
     this.encoder.addFrame(this.canvasCtx)
@@ -231,52 +230,51 @@ class NounsAnimationsImpl {
     this.drawGlimpseRect(140, 120, 210, 120, 2000)
   }
 
-  //TODO:
   async bits() {
     await this.drawNoun()
 
-    this.drawBitRect(150, 180, 30, 25)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 25)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 350)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 350)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 350)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 350)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 150)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 150)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 350)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 350)
 
-    this.drawBitRect(150, 180, 30, 50)
-    this.drawBitRect(170, 200, 10, 50)
+    this.drawBitRect(120, 140, 20, 50)
+    this.drawBitRect(130, 150, 10, 50)
 
-    this.drawBitRect(150, 180, 30, 25)
+    this.drawBitRect(120, 140, 20, 25)
 
-    this.drawBitRect(150, 180, 10, 2000)
+    this.drawBitRect(120, 140, 10, 2000)
   }
 
   async drawNoun() {
@@ -346,9 +344,8 @@ export class NounsAnimations implements ClassicNounAnimations {
     ]
     this.discoGlasses = [
       {
-        //TODO:
         name: 'Bits',
-        previewImg: '/previews/lil-nouns/bits.gif',
+        previewImg: '/previews/nouns/bits.gif',
         async animateNoun(seed) {
           const lil = new NounsAnimationsImpl(seed)
           await lil.bits()
