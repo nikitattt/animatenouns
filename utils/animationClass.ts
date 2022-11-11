@@ -1,5 +1,6 @@
 import { ClassicNounAnimations } from './animations/interfaces'
 import { LilNounsAnimations } from './animations/lilNouns'
+import { NounsAnimations } from './animations/nouns'
 import { Collections } from './types/collections'
 
 export const animationClass = (
@@ -8,7 +9,6 @@ export const animationClass = (
   if (collection === Collections.lilNouns) {
     return new LilNounsAnimations()
   } else {
-    //TODO: change to noun class
-    return new LilNounsAnimations()
+    return new NounsAnimations()
   }
 }

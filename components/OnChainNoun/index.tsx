@@ -22,7 +22,7 @@ const OnChainNoun = () => {
       return
     }
 
-    const provider = new AlchemyProvider('homestead', process.env.ALCHEMY_ID)
+    const provider = new AlchemyProvider('homestead', process.env.NEXT_PUBLIC_ALCHEMY_ID)
 
     const tokenContract = constructContract(collection, provider)
 

@@ -25,11 +25,9 @@ const NounSelectAndActions = () => {
     case Collections.nouns:
       actions = (
         <div className="flex flex-col gap-4">
-          <div className="p-4 w-full bg-grey-light bg-opacity-10 rounded-2xl">
-            <div className="text-center text-grey text-sm">
-              Nothing here yet🥲 Check again soon!
-            </div>
-          </div>
+          <OnChainNoun />
+          <RandomNoun />
+          <SaveNoun />
         </div>
       )
       break
