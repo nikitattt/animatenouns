@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@lilnouns/assets": "^0.2.1",
+    "@lilnounsdao/assets": "^0.5.8",
     "@nouns/assets": "^0.4.0",
     "@nouns/sdk": "^0.2.0",
     "@types/gifencoder": "^2.0.1",
