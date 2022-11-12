@@ -7,7 +7,7 @@ import { createCanvas, loadImage, CanvasRenderingContext2D } from 'canvas'
 import {
   ImageData as LilImageData,
   getNounData as getLilNounData
-} from '@lilnouns/assets'
+} from '@lilnounsdao/assets'
 import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
 
 const lilPalette = LilImageData.palette
@@ -414,10 +414,9 @@ export class LilNounsAnimations implements ClassicNounAnimations {
       }
     ]
 
-    // TODO: need to add 8.8 art. Require npm package update
     this.animationsIdMaps = [
       {
-        supportedId: '0,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20',
+        supportedId: '0,4,5,6,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22',
         animations: this.standardGlasses
       },
       {

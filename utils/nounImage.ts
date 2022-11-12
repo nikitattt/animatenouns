@@ -1,7 +1,7 @@
 import {
   ImageData as LilImageData,
   getNounData as getLilNounData
-} from '@lilnouns/assets'
+} from '@lilnounsdao/assets'
 import { ImageData, getNounData } from '@nouns/assets'
 import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
 import { Collections } from './types/collections'
