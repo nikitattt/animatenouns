@@ -62,8 +62,6 @@ const TraitsSelect = () => {
   };
 
   useEffect(() => {
-    // if (collection === undefined) return
-
     let imageData
     if (collection === Collections.lilNouns) {
       imageData = LilNounsImageData
