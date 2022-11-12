@@ -26,6 +26,7 @@ const NounSelectAndActions = () => {
       actions = (
         <div className="flex flex-col gap-4">
           <OnChainNoun />
+          <TraitsSelect />
           <RandomNoun />
           <SaveNoun />
         </div>
