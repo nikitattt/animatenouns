@@ -1,6 +1,8 @@
-import { ImageData, getRandomNounSeed } from '@nouns/assets';
+import { ImageData as NounsImageData, getRandomNounSeed } from '@nouns/assets';
+import { ImageData as LilNounsImageData, getRandomNounSeed as getRandomLilNounSeed } from '@lilnounsdao/assets';
 import { useState, useEffect } from 'react';
 import { useNounStore } from '../../state/noun';
+import { Collections } from '../../utils/types/collections';
 
 interface Trait {
   title: string;
@@ -32,7 +34,15 @@ const TraitsSelect = () => {
   const setActiveNoun = useNounStore((state) => state.setActiveNoun)
 
   const setNounFromTraits = () => {
-    const seed = { ...getRandomNounSeed(), ...modSeed };
+    let seed
+    if (collection === Collections.lilNouns) {
+      seed = { ...getRandomLilNounSeed(), ...modSeed };
+    } else if (collection === Collections.nouns) {
+      seed = { ...getRandomNounSeed(), ...modSeed };
+    } else {
+      throw Error(`This collection is not supported: ${collection}`)
+    }
+
     setActiveNoun(seed)
   }
 
@@ -52,10 +62,21 @@ const TraitsSelect = () => {
   };
 
   useEffect(() => {
+    // if (collection === undefined) return
+
+    let imageData
+    if (collection === Collections.lilNouns) {
+      imageData = LilNounsImageData
+    } else if (collection === Collections.nouns) {
+      imageData = NounsImageData
+    } else {
+      throw Error(`This collection is not supported: ${collection}`)
+    }
+
     const traitTitles = ['background', 'body', 'accessory', 'head', 'glasses'];
     const traitNames = [
       ['cool', 'warm'],
-      ...Object.values(ImageData.images).map(i => {
+      ...Object.values(imageData.images).map(i => {
         return i.map(imageData => imageData.filename);
       }),
     ];
@@ -71,7 +92,7 @@ const TraitsSelect = () => {
     if (initLoad) {
       setInitLoad(false);
     }
-  }, [initLoad]);
+  }, [initLoad, collection]);
 
   const traitOptions = (trait: Trait) => {
     return Array.from(Array(trait.traitNames.length + 1)).map((_, index) => {
