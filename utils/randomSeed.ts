@@ -1,4 +1,4 @@
-import { getNounSeedFromBlockHash as getLilNounSeedFromBlockHash } from '@lilnouns/assets'
+import { getNounSeedFromBlockHash as getLilNounSeedFromBlockHash } from '@lilnounsdao/assets'
 import { getNounSeedFromBlockHash } from '@nouns/assets'
 import { Collections } from './types/collections'
 
