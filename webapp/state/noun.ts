@@ -1,16 +1,16 @@
 import create from 'zustand'
 import { animationClass } from '../utils/animationClass'
 import { Collections } from '../utils/types/collections'
-import { Seed } from '../utils/types/seed'
+import { Seed, UploadedNoun } from '../utils/types/types'
 
 interface NounState {
   collection: undefined | Collections
-  activeNoun: undefined | Seed
+  activeNoun: undefined | Seed | UploadedNoun
   animation: undefined | string
   animatedNoun: undefined | string
   animationInProgress: boolean
   setStatus: (collection: string) => void
-  setActiveNoun: (seed: Seed) => void
+  setActiveNoun: (seed: Seed | UploadedNoun) => void
   setAnimation: (name: string) => Promise<void>
 }
 
@@ -36,9 +36,9 @@ const useNounStore = create<NounState>((set, get) => ({
       animation: undefined
     })
   },
-  setActiveNoun: (seed: Seed) => {
+  setActiveNoun: (noun: Seed | UploadedNoun) => {
     if (!get().animationInProgress) {
-      set({ activeNoun: seed, animatedNoun: undefined, animation: undefined })
+      set({ activeNoun: noun, animatedNoun: undefined, animation: undefined })
     }
   },
   setAnimation: async (name: string) => {
@@ -48,28 +48,28 @@ const useNounStore = create<NounState>((set, get) => ({
 
     if (animation === name) return
 
-    set({ animation: name, animationInProgress: true })
+    // set({ animation: name, animationInProgress: true })
 
-    if (collection && activeNoun) {
-      const lilsAnimations = animationClass(collection)
+    // if (collection && activeNoun) {
+    //   const lilsAnimations = animationClass(collection)
 
-      const func = await lilsAnimations
-        .map(activeNoun.glasses)
-        .find((a) => a.name === name)?.animateNoun
+    //   const func = await lilsAnimations
+    //     .map(activeNoun.glasses)
+    //     .find((a) => a.name === name)?.animateNoun
 
-      if (func) {
-        setTimeout(() => {
-          func(activeNoun).then((src) => {
-            set({ animatedNoun: src, animationInProgress: false })
-          })
-        }, 10)
-      } else {
-        set({ animationInProgress: false })
-        //TODO: show some error message
-      }
-    } else {
-      set({ animationInProgress: false })
-    }
+    //   if (func) {
+    //     setTimeout(() => {
+    //       func(activeNoun).then((src) => {
+    //         set({ animatedNoun: src, animationInProgress: false })
+    //       })
+    //     }, 10)
+    //   } else {
+    //     set({ animationInProgress: false })
+    //     //TODO: show some error message
+    //   }
+    // } else {
+    //   set({ animationInProgress: false })
+    // }
   }
 }))
 

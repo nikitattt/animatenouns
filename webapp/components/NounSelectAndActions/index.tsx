@@ -5,10 +5,10 @@ import OnChainNoun from '../OnChainNoun'
 import RandomNoun from '../RandomNoun'
 import SaveNoun from '../SaveNoun'
 import TraitsSelect from '../TraitsSelect'
+import UploadImage from '../UploadImage'
 
 const NounSelectAndActions = () => {
   const collection = useNounStore((state) => state.collection)
-  const animatedNoun = useNounStore((state) => state.animatedNoun)
 
   let actions = <></>
 
@@ -17,6 +17,7 @@ const NounSelectAndActions = () => {
       actions = (
         <div className="flex flex-col gap-4">
           <OnChainNoun />
+          <UploadImage />
           <TraitsSelect />
           <RandomNoun />
           <SaveNoun />
@@ -27,6 +28,7 @@ const NounSelectAndActions = () => {
       actions = (
         <div className="flex flex-col gap-4">
           <OnChainNoun />
+          <UploadImage />
           <TraitsSelect />
           <RandomNoun />
           <SaveNoun />
