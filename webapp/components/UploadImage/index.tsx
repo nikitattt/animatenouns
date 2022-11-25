@@ -16,7 +16,7 @@ const UploadImage = () => {
 
             const uploadedNoun: UploadedNoun = {
                 image: image,
-                glassesId: 0
+                glasses: 0
             }
 
             setActiveNoun(uploadedNoun)
@@ -25,7 +25,7 @@ const UploadImage = () => {
 
             const uploadedNoun: UploadedNoun = {
                 image: image,
-                glassesId: 0
+                glasses: 0
             }
 
             setActiveNoun(uploadedNoun)

@@ -11,7 +11,7 @@ export type Animation = {
 
 export type UploadedNoun = {
   image: Buffer
-  glassesId: number
+  glasses: number
 }
 
 export type Seed = {
