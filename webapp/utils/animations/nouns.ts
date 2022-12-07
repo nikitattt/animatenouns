@@ -1,11 +1,15 @@
-import { Animation } from '../types/animation'
-import { AnimationsIdMap } from '../types/animationsIdMap'
-import { Seed } from '../types/seed'
 import { ClassicNounAnimations } from './interfaces'
 import { default as GifEncoder } from 'gifencoder'
 import { createCanvas, loadImage, CanvasRenderingContext2D } from 'canvas'
 import { ImageData, getNounData } from '@nouns/assets'
 import { buildSVG } from '@nouns/sdk/dist/image/svg-builder'
+import {
+  AnimationsIdMap,
+  Seed,
+  Animation,
+  UploadedNoun,
+  instanceOfSeed
+} from '../types/types'
 
 const palette = ImageData.palette
 
@@ -18,7 +22,7 @@ class NounsAnimationsImpl {
   readonly width = 320
   readonly height = 320
 
-  private seed: Seed
+  private noun: Seed | UploadedNoun
   private encoder: GifEncoder
   private canvasCtx: CanvasRenderingContext2D
 
@@ -278,11 +282,16 @@ class NounsAnimationsImpl {
   }
 
   async drawNoun() {
-    const { parts, background } = getNounData(this.seed)
-    const svgBinary = buildSVG(parts, palette, background)
-    const svgBase64 = Buffer.from(svgBinary).toString('base64')
+    let image
+    if (instanceOfSeed(this.noun)) {
+      const { parts, background } = getNounData(this.noun)
+      const svgBinary = buildSVG(parts, palette, background)
+      const svgBase64 = Buffer.from(svgBinary).toString('base64')
 
-    const image = await loadImage(`data:image/svg+xml;base64,${svgBase64}`)
+      image = await loadImage(`data:image/svg+xml;base64,${svgBase64}`)
+    } else {
+      image = await loadImage(this.noun.image)
+    }
 
     this.canvasCtx.drawImage(image, 0, 0)
 
@@ -290,8 +299,8 @@ class NounsAnimationsImpl {
     this.encoder.addFrame(this.canvasCtx)
   }
 
-  constructor(seed: Seed) {
-    this.seed = seed
+  constructor(noun: Seed | UploadedNoun) {
+    this.noun = noun
 
     this.encoder = new GifEncoder(this.width, this.height)
 

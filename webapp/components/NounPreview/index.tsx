@@ -28,9 +28,7 @@ export const nounImage = (collection: Collections, noun: Seed | UploadedNoun): s
 
     return `data:image/svg+xml;base64,${svgBase64}`
   } else {
-    const pngBase64 = noun.image.toString('base64')
-
-    return `data:image/png+xml;base64,${pngBase64}`
+    return noun.image
   }
 }
 

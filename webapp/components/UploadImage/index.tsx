@@ -3,6 +3,7 @@ import { useNounStore } from '../../state/noun';
 import { Collections } from '../../utils/types/collections';
 import { PNG } from 'pngjs';
 import { UploadedNoun } from '../../utils/types/types';
+import * as tf from '@tensorflow/tfjs';
 
 const UploadImage = () => {
     const [expanded, setExpanded] = useState(false);
@@ -10,12 +11,28 @@ const UploadImage = () => {
     const collection = useNounStore((state) => state.collection)
     const setActiveNoun = useNounStore((state) => state.setActiveNoun)
 
-    const detectGlasses = (image: Buffer) => {
+    const detectGlasses = async (image: HTMLCanvasElement, fileType: string) => {
         if (collection === Collections.nouns) {
             // TODO: detect glasses
 
+            // var model = await tf.loadGraphModel('./model.json');
+
+            // let example = tf.browser.fromPixels(image, 3).cast('float32');
+            // console.log(example.shape)
+            // example = example.reshape([1, example.shape[0], example.shape[1], example.shape[2]]);
+
+            // let prediction = await model.predict(example);
+            // let class_scores = await prediction.data();
+            // let max_score_id = class_scores.indexOf(Math.max(...class_scores));
+            // let classes = ["20", "18", "9", "0", "11", "7", "16", "6", "17", "1", "10", "19", "8", "21", "4", "15", "3", "12", "2", "13", "5", "14", "22",];
+
+            // console.log(class_scores);
+            // const result = classes[max_score_id].toString();
+
+            const dataUrl = image.toDataURL(fileType);
+
             const uploadedNoun: UploadedNoun = {
-                image: image,
+                image: dataUrl,
                 glasses: 0
             }
 
@@ -23,8 +40,10 @@ const UploadImage = () => {
         } else {
             // TODO: detect glasses
 
+            const dataUrl = image.toDataURL(fileType);
+
             const uploadedNoun: UploadedNoun = {
-                image: image,
+                image: dataUrl,
                 glasses: 0
             }
 
@@ -39,20 +58,43 @@ const UploadImage = () => {
             const reader = new FileReader();
             reader.onload = e => {
                 if (e?.target?.result) {
-                    const buffer = Buffer.from(e.target.result.toString(), "binary");
-                    const png = PNG.sync.read(buffer);
-                    if (png.width !== png.height) {
-                        throw new Error('Image must be rectangular');
+                    var img = document.createElement("img");
+                    img.onload = function (event) {
+                        // TODO: better algo
+                        var MAX_WIDTH = 320;
+                        var MAX_HEIGHT = 320;
+
+                        var width = img.width;
+                        var height = img.height;
+
+                        // Change the resizing logic
+                        if (width > height) {
+                            if (width > MAX_WIDTH) {
+                                height = height * (MAX_WIDTH / width);
+                                width = MAX_WIDTH;
+                            }
+                        } else {
+                            if (height > MAX_HEIGHT) {
+                                width = width * (MAX_HEIGHT / height);
+                                height = MAX_HEIGHT;
+                            }
+                        }
+
+                        var canvas = document.createElement("canvas");
+                        canvas.width = width;
+                        canvas.height = height;
+                        var ctx = canvas.getContext("2d");
+                        ctx?.drawImage(img, 0, 0, width, height);
+
+                        // Show resized image in preview element
+                        // var dataurl = canvas.toDataURL(file.type);
+                        // console.log(dataurl)
+                        detectGlasses(canvas, file.type)
                     }
-
-                    const filename = file.name?.replace('.png', '') || 'custom';
-
-                    // TODO: resize image
-
-                    detectGlasses(buffer)
+                    img.src = e.target.result.toString();
                 } else { }
             };
-            reader.readAsBinaryString(file);
+            reader.readAsDataURL(file);
         };
     };
 

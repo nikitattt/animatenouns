@@ -10,7 +10,7 @@ export type Animation = {
 }
 
 export type UploadedNoun = {
-  image: Buffer
+  image: string
   glasses: number
 }
 

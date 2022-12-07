@@ -48,28 +48,28 @@ const useNounStore = create<NounState>((set, get) => ({
 
     if (animation === name) return
 
-    // set({ animation: name, animationInProgress: true })
+    set({ animation: name, animationInProgress: true })
 
-    // if (collection && activeNoun) {
-    //   const lilsAnimations = animationClass(collection)
+    if (collection && activeNoun) {
+      const lilsAnimations = animationClass(collection)
 
-    //   const func = await lilsAnimations
-    //     .map(activeNoun.glasses)
-    //     .find((a) => a.name === name)?.animateNoun
+      const func = await lilsAnimations
+        .map(activeNoun.glasses)
+        .find((a) => a.name === name)?.animateNoun
 
-    //   if (func) {
-    //     setTimeout(() => {
-    //       func(activeNoun).then((src) => {
-    //         set({ animatedNoun: src, animationInProgress: false })
-    //       })
-    //     }, 10)
-    //   } else {
-    //     set({ animationInProgress: false })
-    //     //TODO: show some error message
-    //   }
-    // } else {
-    //   set({ animationInProgress: false })
-    // }
+      if (func) {
+        setTimeout(() => {
+          func(activeNoun).then((src: string) => {
+            set({ animatedNoun: src, animationInProgress: false })
+          })
+        }, 10)
+      } else {
+        set({ animationInProgress: false })
+        //TODO: show some error message
+      }
+    } else {
+      set({ animationInProgress: false })
+    }
   }
 }))
 
