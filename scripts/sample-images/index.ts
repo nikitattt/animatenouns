@@ -22,14 +22,14 @@ async function saveImage(
   itemId: number,
   image: string
 ) {
-  //   var dir = `./images/${collection}/${glassesId}`;
-  var dir = `./images/validation/${collection}/${glassesId}`;
+  var dir = `./images/${collection}/${glassesId}`;
+  // var dir = `./images/validation/${collection}/${glassesId}`;
 
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
   }
   await sharp(Buffer.from(image))
-    .resize(500)
+    // .resize(320)
     .png()
     .toFile(`${dir}/${itemId}.png`);
 }
@@ -63,11 +63,11 @@ async function generateSampleImages(nToGenerate: number) {
     }
   }
 
-  //   for (let g = 0; g < LilNounsImageData.images.glasses.length; g++) {
-  //     for (let i = 0; i < nToGenerate; i++) {
-  //       genLilNounImage(g, i);
-  //     }
+  // for (let g = 0; g < LilNounsImageData.images.glasses.length; g++) {
+  //   for (let i = 0; i < nToGenerate; i++) {
+  //     genLilNounImage(g, i);
   //   }
+  // }
 }
 
-generateSampleImages(15);
+generateSampleImages(1000);

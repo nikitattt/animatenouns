@@ -1,48 +1,78 @@
-
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
   </head>
   <body>
+    Make sure to run this via a server
 
-  	Make sure to run this via a server
+    <br />
+    <input accept="image/*" type="file" id="input_button" />
 
-    <br>
-    <input accept="image/*" type='file' id="input_button" />
-
-  	<br>
-    <img id="img1" src="./image.jpg" style="width: 300px " />
-    <br>  <br>
-    <button   onclick="predict()">predict</button>
-    <br>
-    <p id="result"> </p>
+    <br />
+    <img id="img1" src="./image.jpg" style="width: 300px" />
+    <br />
+    <br />
+    <button onclick="predict()">predict</button>
+    <br />
+    <p id="result"></p>
 
     <script>
+      let image = document.getElementById("img1");
+      let input_button = document.getElementById("input_button");
 
-      let image = document.getElementById('img1');
-      let input_button = document.getElementById('input_button');
-
-      input_button.onchange = evt => {
-        const [file] = input_button.files
+      input_button.onchange = (evt) => {
+        const [file] = input_button.files;
         if (file) {
-          image.src = URL.createObjectURL(file)
+          image.src = URL.createObjectURL(file);
         }
-      }
+      };
 
       async function predict() {
-        var  model = await tf.loadGraphModel('./model.json');
+        var model = await tf.loadGraphModel("./model.json");
 
-        let example = tf.browser.fromPixels(document.getElementById("img1") , 3 ).cast('float32');
-        console.log(  example.shape  )
-        example = example.reshape([1,example.shape[0], example.shape[1] ,example.shape[2]]);
+        let example = tf.browser
+          .fromPixels(document.getElementById("img1"), 3)
+          .cast("float32");
+        console.log(example.shape);
+        example = example.reshape([
+          1,
+          example.shape[0],
+          example.shape[1],
+          example.shape[2],
+        ]);
 
         let prediction = await model.predict(example);
         let class_scores = await prediction.data();
-        let max_score_id =  class_scores.indexOf(Math.max(...class_scores));
-        let classes = [  "20" ,  "18" ,  "9" ,  "0" ,  "11" ,  "7" ,  "16" ,  "6" ,  "17" ,  "1" ,  "10" ,  "19" ,  "8" ,  "21" ,  "4" ,  "15" ,  "3" ,  "12" ,  "2" ,  "13" ,  "5" ,  "14" ,  "22" ,  ] ;
+        let max_score_id = class_scores.indexOf(Math.max(...class_scores));
+        let classes = [
+          "20",
+          "18",
+          "9",
+          "0",
+          "11",
+          "7",
+          "16",
+          "6",
+          "17",
+          "1",
+          "10",
+          "19",
+          "8",
+          "21",
+          "4",
+          "15",
+          "3",
+          "12",
+          "2",
+          "13",
+          "5",
+          "14",
+          "22",
+        ];
 
         console.log(class_scores);
-        document.getElementById("result").innerHTML = classes[max_score_id].toString();
+        document.getElementById("result").innerHTML =
+          classes[max_score_id].toString();
       }
     </script>
   </body>

@@ -5,6 +5,9 @@ import { PNG } from 'pngjs';
 import { UploadedNoun } from '../../utils/types/types';
 import * as tf from '@tensorflow/tfjs';
 
+const nounModel = '/models/nouns/model.json'
+const nounClasses = '/models/nouns/classes.json'
+
 const UploadImage = () => {
     const [expanded, setExpanded] = useState(false);
 
@@ -13,27 +16,24 @@ const UploadImage = () => {
 
     const detectGlasses = async (image: HTMLCanvasElement, fileType: string) => {
         if (collection === Collections.nouns) {
-            // TODO: detect glasses
+            const model = await tf.loadGraphModel(nounModel);
 
-            // var model = await tf.loadGraphModel('./model.json');
+            let example = tf.browser.fromPixels(image, 3).cast('float32');
+            example = example.reshape([1, example.shape[0], example.shape[1]!, example.shape[2]!]);
 
-            // let example = tf.browser.fromPixels(image, 3).cast('float32');
-            // console.log(example.shape)
-            // example = example.reshape([1, example.shape[0], example.shape[1], example.shape[2]]);
+            const prediction = await (await model.predict(example) as tf.Tensor).data()
+            const class_scores = Array.from(prediction)
+            const max_score_id = class_scores.indexOf(Math.max(...class_scores));
+            const classes = ["20", "18", "9", "0", "11", "7", "16", "6", "17", "1", "10", "19", "8", "21", "4", "15", "3", "12", "2", "13", "5", "14", "22",];
 
-            // let prediction = await model.predict(example);
-            // let class_scores = await prediction.data();
-            // let max_score_id = class_scores.indexOf(Math.max(...class_scores));
-            // let classes = ["20", "18", "9", "0", "11", "7", "16", "6", "17", "1", "10", "19", "8", "21", "4", "15", "3", "12", "2", "13", "5", "14", "22",];
-
-            // console.log(class_scores);
-            // const result = classes[max_score_id].toString();
+            const result = Number(classes[max_score_id]);
+            console.log(result)
 
             const dataUrl = image.toDataURL(fileType);
 
             const uploadedNoun: UploadedNoun = {
                 image: dataUrl,
-                glasses: 0
+                glasses: result
             }
 
             setActiveNoun(uploadedNoun)
